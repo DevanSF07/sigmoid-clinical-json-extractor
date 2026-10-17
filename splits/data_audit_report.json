@@ -1,0 +1,66 @@
+{
+  "train_rows": 10822,
+  "test_rows": 3796,
+  "train_columns": [
+    "ID",
+    "Note",
+    "json"
+  ],
+  "test_columns": [
+    "ID",
+    "Note"
+  ],
+  "train_missing_values": {
+    "ID": 0,
+    "Note": 0,
+    "json": 0
+  },
+  "test_missing_values": {
+    "ID": 0,
+    "Note": 0
+  },
+  "train_unique_note_hashes": 10822,
+  "test_unique_note_hashes": 3796,
+  "train_test_hash_overlap": 0,
+  "malformed_train_json_count": 0,
+  "json_top_level_keys": [
+    "patient_info",
+    "symptoms",
+    "visit_motivation",
+    "vital_signs"
+  ],
+  "medication_annotations_present_in_json": false,
+  "total_unique_motivations": 20,
+  "total_unique_symptoms": 35,
+  "motivation_counts": {
+    "Anemia": 525,
+    "Allergies": 584,
+    "Diabetes (Type 2)": 533,
+    "Tuberculosis (TB)": 535,
+    "Depression": 533,
+    "Asthma": 502,
+    "Hypertension (High Blood Pressure)": 593,
+    "Influenza (Flu)": 559,
+    "Anxiety Disorders": 571,
+    "Gastroesophageal Reflux Disease (GERD)": 582,
+    "Heart Disease (Coronary Artery Disease)": 512,
+    "Pneumonia": 511,
+    "Urinary Tract Infection (UTI)": 598,
+    "Common Cold": 498,
+    "Ear Infection (Otitis Media)": 533,
+    "Eczema (Atopic Dermatitis)": 578,
+    "COVID-19": 494,
+    "Strep Throat": 567,
+    "Sinusitis": 510,
+    "Chronic Obstructive Pulmonary Disease (COPD)": 504
+  },
+  "vital_sign_counts": {
+    "heart_rate": 5777,
+    "oxygen_saturation": 5584,
+    "cholesterol_level": 5327,
+    "glucose_level": 5420,
+    "temperature": 5911,
+    "respiratory_rate": 5651,
+    "blood_pressure": 5290
+  }
+}

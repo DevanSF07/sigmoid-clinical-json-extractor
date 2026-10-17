@@ -1,91 +1,205 @@
 """
-Outlines FSM Constrained Generation & Pydantic Schema Validator
-Enforces token-level FSM logit masking at decode time to guarantee valid JSON syntax.
-
-CV Targets:
-- 99.2% Schema Validity
-- 0.94 Field-Level Accuracy
+Outlines FSM Constrained Decoding & Pydantic Schema Validator
+Integrates Outlines with the fine-tuned model and strict Pydantic PatientRecord schema.
+Implements:
+- FSM logit masking during autoregressive decode
+- Pydantic v2 validation
+- Bounded retries with failure logging
+- Explicit tracking of raw generation validity vs retry success
+- Strict prohibition of data fabrication
 """
 
+import os
 import json
-from typing import Dict, Any, Optional, Tuple
-from schemas.patient_schema import PatientRecord, PatientInfo, BloodPressure, BPComponent, ValueUnit
+from typing import Dict, Any, Optional, Tuple, List
+from pydantic import ValidationError
+
+from schemas.patient_schema import (
+    PatientRecord,
+    PatientInfo,
+    VitalSigns,
+    ValueUnit,
+    BloodPressure,
+    BPComponent
+)
 
 
 class OutlinesSchemaGenerator:
-    def __init__(self, model_checkpoint: Optional[str] = None):
+    def __init__(
+        self,
+        transformers_model=None,
+        tokenizer=None,
+        max_retries: int = 2
+    ):
         """
-        Initializes the Outlines structured generator.
-        When model_checkpoint is provided, loads the LLM with Outlines FSM logit bias.
+        Initializes Outlines FSM constrained generator.
+        Wraps transformers model with Outlines SteerableGenerator using PatientRecord schema.
         """
-        self.model_checkpoint = model_checkpoint
+        self.model = transformers_model
+        self.tokenizer = tokenizer
+        self.max_retries = max_retries
         self.generator = None
 
-        if model_checkpoint:
-            try:
-                import outlines
-                # Wrap transformers model with Outlines
-                model = outlines.models.transformers(model_checkpoint)
-                # Build FSM constrained generator from Pydantic schema
-                self.generator = outlines.generate.json(model, PatientRecord)
-                print(f"[Outlines] Initialized FSM logit bias generator from {model_checkpoint}")
-            except Exception as e:
-                print(f"[Outlines] LLM constrained generator fallback to local schema pipeline: {e}")
+        if self.model is not None and self.tokenizer is not None:
+            self._init_outlines_generator()
 
-    def generate_with_fsm(self, prompt: str) -> Optional[PatientRecord]:
+    def _init_outlines_generator(self):
+        """Build Outlines SteerableGenerator constrained by PatientRecord schema."""
+        try:
+            import outlines
+            print("[Outlines] Wrapping Transformers model with Outlines backend...")
+            outlines_model = outlines.from_transformers(self.model, self.tokenizer)
+            self.generator = outlines.Generator(outlines_model, output_type=PatientRecord)
+            print("[Outlines] Successfully initialized FSM constrained generator for PatientRecord.")
+        except Exception as e:
+            print(f"[Outlines Warning] Could not initialize Outlines SteerableGenerator: {e}")
+            self.generator = None
+
+    def generate_record(
+        self,
+        prompt: str
+    ) -> Dict[str, Any]:
         """
-        Execute FSM-guided generation. Every token is masked by the FSM state.
+        Generate structured record via FSM-constrained decoding.
+        Tracks:
+        - raw_generation_valid (True/False)
+        - retries_used (int)
+        - record (PatientRecord or None)
+        - error (str or None)
+        Never fabricates records to force validation.
         """
-        if self.generator is not None:
-            return self.generator(prompt)
-        return None
+        if self.generator is None:
+            raise RuntimeError(
+                "Outlines generator is not initialized with an active model. "
+                "Ensure a fine-tuned or local causal LM is loaded."
+            )
+
+        attempts = 0
+        raw_valid = False
+
+        while attempts <= self.max_retries:
+            attempts += 1
+            try:
+                # Outlines constrained generation
+                response = self.generator(prompt)
+
+                if isinstance(response, PatientRecord):
+                    if attempts == 1:
+                        raw_valid = True
+                    return {
+                        "success": True,
+                        "raw_valid": raw_valid,
+                        "retries_used": attempts - 1,
+                        "record": response,
+                        "error": None
+                    }
+                elif isinstance(response, str):
+                    # Validate string output via Pydantic
+                    parsed = json.loads(response)
+                    record = PatientRecord(**parsed)
+                    if attempts == 1:
+                        raw_valid = True
+                    return {
+                        "success": True,
+                        "raw_valid": raw_valid,
+                        "retries_used": attempts - 1,
+                        "record": record,
+                        "error": None
+                    }
+
+            except (ValidationError, json.JSONDecodeError, Exception) as e:
+                err_msg = str(e)
+                print(f"[Outlines] Generation attempt {attempts} failed validation: {err_msg}")
+                if attempts > self.max_retries:
+                    return {
+                        "success": False,
+                        "raw_valid": False,
+                        "retries_used": attempts - 1,
+                        "record": None,
+                        "error": err_msg
+                    }
+
+        return {
+            "success": False,
+            "raw_valid": False,
+            "retries_used": attempts - 1,
+            "record": None,
+            "error": "Exceeded maximum retry budget."
+        }
 
     @staticmethod
-    def validate_and_conform(raw_data: Dict[str, Any]) -> Tuple[bool, Optional[Dict[str, Any]], Optional[str]]:
+    def validate_candidate_dict(raw_data: Dict[str, Any]) -> Tuple[bool, Optional[PatientRecord], Optional[str]]:
         """
-        Validate data against Pydantic PatientRecord schema.
-        Returns: (is_valid, clean_dict, error_message)
+        Validate an extracted dictionary against the strict PatientRecord Pydantic schema.
+        Preserves None values without inserting fake defaults (no default 45 or Male).
         """
         try:
             # Reconstruct patient_info
             p_info = raw_data.get("patient_info", {})
-            age_raw = p_info.get("age")
-            age = int(age_raw) if (age_raw is not None and str(age_raw).isdigit()) else 45
-            gender_raw = p_info.get("gender")
-            gender = str(gender_raw).capitalize() if gender_raw else "Male"
+            age = p_info.get("age")
+            if age is not None:
+                try:
+                    age = int(age)
+                except (ValueError, TypeError):
+                    age = None
+
+            gender = p_info.get("gender")
+            if gender is not None:
+                gender = str(gender).strip().capitalize()
+                if gender not in ["Male", "Female"]:
+                    gender = "Male" if gender.lower().startswith("m") else "Female" if gender.lower().startswith("f") else None
+
             patient_info_obj = PatientInfo(age=age, gender=gender)
 
             # Reconstruct visit_motivation
-            motivation = str(raw_data.get("visit_motivation", "General Examination")).strip()
+            motivation = raw_data.get("visit_motivation")
+            if motivation:
+                motivation = str(motivation).strip()
+            else:
+                motivation = None
 
             # Reconstruct symptoms
             symptoms = list(raw_data.get("symptoms", []))
 
             # Reconstruct vital signs
             vitals = raw_data.get("vital_signs", {})
-            cleaned_vitals = {}
-            for k, v in vitals.items():
-                if k == "blood_pressure" and isinstance(v, dict):
-                    sys_data = v.get("systolic", {})
-                    dia_data = v.get("diastolic", {})
-                    if "value" in sys_data and "value" in dia_data:
-                        cleaned_vitals["blood_pressure"] = {
-                            "systolic": {"value": int(sys_data["value"]), "unit": "mmHg"},
-                            "diastolic": {"value": int(dia_data["value"]), "unit": "mmHg"}
-                        }
-                elif isinstance(v, dict) and "value" in v and "unit" in v:
-                    val = v["value"]
-                    if isinstance(val, (int, float)):
-                        cleaned_vitals[k] = {"value": round(float(val), 2), "unit": v["unit"]}
+            vital_kwargs = {}
+
+            if "blood_pressure" in vitals and isinstance(vitals["blood_pressure"], dict):
+                bp = vitals["blood_pressure"]
+                sys_v = bp.get("systolic", {}).get("value")
+                dia_v = bp.get("diastolic", {}).get("value")
+                if sys_v is not None and dia_v is not None:
+                    vital_kwargs["blood_pressure"] = BloodPressure(
+                        systolic=BPComponent(value=int(sys_v)),
+                        diastolic=BPComponent(value=int(dia_v))
+                    )
+
+            for field_name in [
+                "temperature",
+                "heart_rate",
+                "respiratory_rate",
+                "oxygen_saturation",
+                "cholesterol_level",
+                "glucose_level"
+            ]:
+                if field_name in vitals and isinstance(vitals[field_name], dict):
+                    v_entry = vitals[field_name]
+                    val = v_entry.get("value")
+                    unit = v_entry.get("unit")
+                    if val is not None and unit is not None:
+                        vital_kwargs[field_name] = ValueUnit(value=float(val), unit=str(unit))
+
+            vitals_obj = VitalSigns(**vital_kwargs)
 
             record = PatientRecord(
                 patient_info=patient_info_obj,
                 visit_motivation=motivation,
                 symptoms=symptoms,
-                vital_signs=cleaned_vitals
+                vital_signs=vitals_obj
             )
 
-            return True, record.to_clean_dict(), None
+            return True, record, None
 
-        except Exception as e:
+        except (ValidationError, Exception) as e:
             return False, None, str(e)

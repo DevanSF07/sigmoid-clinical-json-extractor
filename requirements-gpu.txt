@@ -1,0 +1,5 @@
+# Dedicated GPU Training Dependencies
+# Requires Linux with NVIDIA CUDA 12.1+ / Ampere or Hopper GPU (A10G, A100, H100)
+-r requirements.txt
+bitsandbytes>=0.42.0
+trl>=0.8.0

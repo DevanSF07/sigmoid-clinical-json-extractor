@@ -1,0 +1,9 @@
+{
+  "total_notes_aligned": 500,
+  "total_target_symptoms": 4704,
+  "total_aligned_symptoms": 4615,
+  "overall_symptom_span_alignment_rate": 0.9811,
+  "total_negated_spans_filtered": 198,
+  "total_ambiguous_spans_isolated": 233,
+  "provenance_note": "Weak supervision uses distant supervision matching target JSON fields to textual spans. Negated mentions are filtered by the context assertion layer. Tokens in ambiguous spans are masked with -100 during token classification training to prevent false negative supervision."
+}

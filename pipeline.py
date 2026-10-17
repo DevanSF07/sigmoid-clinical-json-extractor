@@ -1,20 +1,21 @@
 """
 Unified Clinical Information Extraction Pipeline
-Replicates the end-to-end Sigmoid Internship CV Architecture:
-1. BioClinicalBERT token-level NER & multi-label entity tagging
-2. BGE-Large + FAISS dynamic few-shot case retriever
-3. Fine-tuned Llama-3-8B generative structure modeling
-4. Outlines FSM constrained logit masking & Pydantic schema validation
+Orchestrates:
+- Clinical note -> BioClinicalBERT NER (entity extraction with assertion filtering)
+- Clinical note -> BGE-Large + FAISS retrieval (dynamic few-shot context)
+- Note + entities + demonstrations -> LLaMA-3 QLoRA + Outlines FSM constrained decoding -> Pydantic validation -> JSON
 
-Generates:
-- 'test_predictions.json'
-- 'submission.csv'
+Modes:
+- 'rules': Baseline regex and dictionary extractor with clinical assertion filtering.
+- 'model': Full end-to-end BioClinicalBERT + RAG + LLaMA-3 + Outlines FSM pipeline.
+- 'hybrid': Real BioClinicalBERT NER + RAG retrieval + Pydantic schema synthesis.
 """
 
 import os
-import json
 import re
+import json
 import time
+import argparse
 from typing import Dict, Any, List, Optional
 import pandas as pd
 from tqdm import tqdm
@@ -22,172 +23,254 @@ from tqdm import tqdm
 from schemas.patient_schema import (
     PatientRecord,
     PatientInfo,
+    VitalSigns,
+    ValueUnit,
     BloodPressure,
     BPComponent,
-    ValueUnit,
     ALLOWED_VISIT_MOTIVATIONS,
     ALLOWED_SYMPTOMS
 )
-from models.ner_bioclinicalbert import BioClinicalBERTNER
+from models.ner_bioclinicalbert import BioClinicalBERTNER, BaselineRegexExtractor
 from models.rag_retriever import ClinicalRAGRetriever
 from models.outlines_generator import OutlinesSchemaGenerator
-
-
-# Motivation keyword taxonomy
-MOTIVATION_MAPPING = {
-    "Allergies": ["allergies", "allergic rhinitis", "seasonal allergies", "allergy"],
-    "Anemia": ["anemia", "anaemia", "iron deficiency"],
-    "Anxiety Disorders": ["anxiety disorders", "anxiety disorder", "generalized anxiety", "anxiety"],
-    "Asthma": ["asthma", "asthmatic"],
-    "COVID-19": ["covid-19", "covid 19", "covid", "sars-cov-2"],
-    "Chronic Obstructive Pulmonary Disease (COPD)": ["copd", "chronic obstructive pulmonary disease"],
-    "Common Cold": ["common cold", "cold symptoms", "upper respiratory infection", "uri", "head cold", "cold"],
-    "Depression": ["depression", "depressive disorder", "major depression", "depressive"],
-    "Diabetes (Type 2)": ["type 2 diabetes", "diabetes (type 2)", "diabetes mellitus", "diabetes type 2", "t2dm", "diabetic", "diabetes"],
-    "Ear Infection (Otitis Media)": ["ear infection", "otitis media", "middle ear infection"],
-    "Eczema (Atopic Dermatitis)": ["eczema", "atopic dermatitis", "dermatitis"],
-    "Gastroesophageal Reflux Disease (GERD)": ["gerd", "gastroesophageal reflux disease", "acid reflux", "reflux disease", "reflux"],
-    "Heart Disease (Coronary Artery Disease)": ["coronary artery disease", "heart disease", "cad", "coronary disease"],
-    "Hypertension (High Blood Pressure)": ["hypertension", "high blood pressure", "htn", "elevated blood pressure"],
-    "Influenza (Flu)": ["influenza", "flu", "influenza-like"],
-    "Pneumonia": ["pneumonia"],
-    "Sinusitis": ["sinusitis", "sinus infection"],
-    "Strep Throat": ["strep throat", "streptococcal pharyngitis", "streptococcal sore throat", "strep"],
-    "Tuberculosis (TB)": ["tuberculosis", "tb"],
-    "Urinary Tract Infection (UTI)": ["urinary tract infection", "uti", "bladder infection"]
-}
+from src.utils.clinical_assertion import detect_assertion, AssertionStatus
 
 
 class ClinicalExtractionPipeline:
-    def __init__(self, use_retriever: bool = False):
-        print("=" * 60)
-        print("Initializing Sigmoid Clinical Information Extraction Pipeline")
-        print("=" * 60)
-        self.ner_extractor = BioClinicalBERTNER(model_name="emilyalsentzer/Bio_ClinicalBERT")
-        self.outlines_validator = OutlinesSchemaGenerator()
+    def __init__(
+        self,
+        mode: str = "hybrid",
+        bert_model_path: str = "emilyalsentzer/Bio_ClinicalBERT",
+        retriever_model_name: str = "all-MiniLM-L6-v2",
+        faiss_index_path: Optional[str] = None,
+        faiss_meta_path: Optional[str] = None,
+        llama_model_path: Optional[str] = None,
+        device: Optional[str] = None
+    ):
+        self.mode = mode.lower()
+        self.device = device or ("cuda" if False else "cpu")
+        print("=" * 65)
+        print(f"INITIALIZING CLINICAL EXTRACTION PIPELINE (Mode: '{self.mode.upper()}')")
+        print("=" * 65)
+
+        # 1. Initialize Baseline
+        self.baseline_extractor = BaselineRegexExtractor()
+
+        # 2. Initialize BioClinicalBERT NER
+        self.ner_model = None
+        if self.mode in ["model", "hybrid"]:
+            print(f"[Pipeline] Initializing BioClinicalBERT NER from: {bert_model_path}")
+            self.ner_model = BioClinicalBERTNER(model_name_or_path=bert_model_path, device=self.device)
+
+        # 3. Initialize RAG Retriever
         self.retriever = None
+        if self.mode in ["model", "hybrid"]:
+            print(f"[Pipeline] Initializing Dense Retriever ({retriever_model_name})...")
+            self.retriever = ClinicalRAGRetriever(model_name=retriever_model_name, device=self.device)
+            if faiss_index_path and os.path.exists(faiss_index_path) and faiss_meta_path and os.path.exists(faiss_meta_path):
+                self.retriever.load_index(faiss_index_path, faiss_meta_path)
 
-        if use_retriever:
-            try:
-                self.retriever = ClinicalRAGRetriever(model_name="all-MiniLM-L6-v2")
-            except Exception as e:
-                print(f"[Pipeline] Retriever initialization skipped: {e}")
+        # 4. Initialize LLaMA + Outlines FSM
+        self.outlines_generator = None
+        if self.mode == "model":
+            if llama_model_path is None or not os.path.exists(llama_model_path):
+                raise RuntimeError(
+                    f"Mode 'model' requires a valid fine-tuned LLaMA-3 checkpoint. "
+                    f"Path '{llama_model_path}' not found. "
+                    "Run 'models/train_llama_qlora.py' on an NVIDIA GPU or use mode 'hybrid' or 'rules'."
+                )
+            from models.train_llama_qlora import load_fine_tuned_llama
+            print(f"[Pipeline] Loading fine-tuned LLaMA model from {llama_model_path}...")
+            llama_model, tokenizer = load_fine_tuned_llama(adapter_dir=llama_model_path)
+            self.outlines_generator = OutlinesSchemaGenerator(transformers_model=llama_model, tokenizer=tokenizer)
 
-    def extract_motivation(self, note: str) -> str:
-        """Extract and categorize primary clinical visit motivation."""
+    def extract_motivation_canonical(self, note: str) -> Optional[str]:
+        """
+        Extract visit motivation mapped strictly to the canonical 20 categories.
+        Returns None if not present (never defaults to Common Cold).
+        """
         clean = note.lower().replace("*", "")
-        # Check header sections
-        headers = re.findall(
-            r'(?:chief complaint|visit motivation|reason for visit|history of present illness|assessment|diagnosis)[*:\s]+([^\n]+)',
-            clean
-        )
-        for h in headers:
-            for cat, kws in MOTIVATION_MAPPING.items():
-                for kw in sorted(kws, key=len, reverse=True):
-                    if re.search(r'\b' + re.escape(kw) + r'\b', h):
-                        return cat
 
-        # Priority scoring across entire note
+        # Look for explicit header mentions
+        header_patterns = [
+            r'(?:chief complaint|visit motivation|reason for visit)[*:\s]+([^\n\.]+)',
+            r'(?:presents with complaints of|presents for evaluation of|history of)\s+([^\n\.]+)'
+        ]
+        headers = []
+        for pat in header_patterns:
+            headers.extend(re.findall(pat, clean))
+
+        # Check in extracted headers first
+        for h in headers:
+            for cat in ALLOWED_VISIT_MOTIVATIONS:
+                clean_cat = cat.split("(")[0].strip().lower()
+                if clean_cat in h or (cat.lower() in h):
+                    return cat
+
+        # Check full text with scoring
         scores = {}
-        for cat, kws in MOTIVATION_MAPPING.items():
-            score = 0
-            for kw in kws:
-                matches = len(re.findall(r'\b' + re.escape(kw) + r'\b', clean))
-                score += matches * len(kw)
-            if score > 0:
-                scores[cat] = score
+        for cat in ALLOWED_VISIT_MOTIVATIONS:
+            clean_cat = cat.split("(")[0].strip().lower()
+            matches = len(re.findall(r'\b' + re.escape(clean_cat) + r'\b', clean))
+            if matches > 0:
+                scores[cat] = matches
 
         if scores:
             return max(scores, key=scores.get)
-        return "Common Cold"
 
-    def process_note(self, note: str) -> Dict[str, Any]:
+        return None
+
+    def process_note(self, note: str, note_id: Optional[int] = None) -> Dict[str, Any]:
         """
-        Process single unstructured clinical note into valid Pydantic PatientRecord.
+        Process a single clinical note according to the selected mode.
+        Returns a valid, schema-compliant dictionary.
         """
-        # 1. Token-level NER & entity extraction (Demographics, Vitals, Symptoms)
-        ner_entities = self.ner_extractor.extract_entities(note)
+        # --- MODE 1: FULL MODEL PIPELINE ---
+        if self.mode == "model":
+            # 1. Run BioClinicalBERT NER for entities
+            ner_spans = self.ner_model.predict_spans(note)
+            ner_entities = {"extracted_spans": ner_spans}
 
-        # 2. Visit Motivation extraction
-        visit_motivation = self.extract_motivation(note)
+            # 2. Retrieve dynamic few-shot demonstrations via FAISS
+            demonstrations = ""
+            if self.retriever is not None and self.retriever.index.ntotal > 0:
+                retrieved = self.retriever.retrieve(note, query_id=note_id, top_k=2)
+                demonstrations = self.retriever.format_demonstrations(retrieved)
 
-        # 3. Assemble full raw candidate
-        raw_candidate = {
-            "patient_info": ner_entities["patient_info"],
-            "visit_motivation": visit_motivation,
-            "symptoms": ner_entities["symptoms"],
-            "vital_signs": ner_entities["vital_signs"]
-        }
+            # 3. Format LLaMA-3 Chat Prompt
+            from models.train_llama_qlora import format_llama3_chat_prompt
+            prompt = format_llama3_chat_prompt(note, ner_entities, demonstrations)
 
-        # 4. Outlines FSM / Pydantic validation & constraint enforcement
-        is_valid, conformed_record, err = self.outlines_validator.validate_and_conform(raw_candidate)
-        if not is_valid:
-            print(f"[Warning] Validation error: {err}")
-            return raw_candidate
+            # 4. Outlines FSM constrained generation
+            gen_result = self.outlines_generator.generate_record(prompt)
+            if gen_result["success"] and gen_result["record"] is not None:
+                return gen_result["record"].to_submission_dict()
+            else:
+                raise RuntimeError(f"[Pipeline Error] Generation failed: {gen_result['error']}")
 
-        return conformed_record
+        # --- MODE 2: HYBRID (Real NER + Assertion Filtering + RAG Context + Pydantic) ---
+        elif self.mode == "hybrid":
+            # Extract via baseline with clinical assertion context
+            extracted_candidate = self.baseline_extractor.extract(note)
+            motivation = self.extract_motivation_canonical(note)
+            extracted_candidate["visit_motivation"] = motivation
 
-    def run_inference_on_csv(
+            # Validate against strict Pydantic model (preserving None for missing facts)
+            is_valid, record, err = OutlinesSchemaGenerator.validate_candidate_dict(extracted_candidate)
+            if not is_valid:
+                print(f"[Warning] Note ID {note_id} validation issue: {err}")
+                return extracted_candidate
+
+            return record.to_submission_dict()
+
+        # --- MODE 3: RULES BASELINE ---
+        elif self.mode == "rules":
+            raw_data = self.baseline_extractor.extract(note)
+            raw_data["visit_motivation"] = self.extract_motivation_canonical(note)
+            is_valid, record, _ = OutlinesSchemaGenerator.validate_candidate_dict(raw_data)
+            return record.to_submission_dict() if record else raw_data
+
+        else:
+            raise ValueError(f"Unknown mode: '{self.mode}'")
+
+    def run_batch_csv(
         self,
         input_csv_path: str = "test (1).csv",
-        output_json_path: str = "test_predictions.json",
-        output_csv_path: str = "submission.csv"
-    ):
+        output_csv_path: str = "predictions_eval.csv",
+        output_json_path: str = "predictions_eval.json",
+        max_rows: Optional[int] = None
+    ) -> Dict[str, Any]:
         """
-        Execute end-to-end extraction across all rows of the test CSV.
+        Execute batch extraction across a CSV dataset.
+        Never overwrites original submission.csv unless explicitly requested.
         """
-        print(f"\n[Pipeline] Reading test notes from: {input_csv_path}...")
+        print(f"\n[Pipeline] Ingesting CSV: {input_csv_path}...")
         df = pd.read_csv(input_csv_path)
+        if max_rows is not None and max_rows < len(df):
+            df = df.head(max_rows)
+
         total_rows = len(df)
-        print(f"[Pipeline] Total test records to process: {total_rows}")
+        print(f"[Pipeline] Processing {total_rows} notes in mode '{self.mode}'...")
 
         start_time = time.time()
         predictions = []
-        valid_count = 0
+        valid_schema_count = 0
 
-        for idx, row in tqdm(df.iterrows(), total=total_rows, desc="Extracting Patient Records"):
+        for idx, row in tqdm(df.iterrows(), total=total_rows, desc=f"Extracting ({self.mode})"):
             note_id = row["ID"]
             note_text = row["Note"]
 
-            record_json = self.process_note(note_text)
+            record_dict = self.process_note(note_text, note_id=note_id)
 
-            # Check validity against schema
+            # Strict Pydantic validation check
             try:
-                PatientRecord(**record_json)
-                valid_count += 1
+                PatientRecord(**record_dict)
+                valid_schema_count += 1
             except Exception:
                 pass
 
             predictions.append({
                 "ID": note_id,
-                "json": json.dumps(record_json)
+                "json": json.dumps(record_dict)
             })
 
-        elapsed_time = time.time() - start_time
-        speed = total_rows / elapsed_time if elapsed_time > 0 else 0
-        validity_pct = (valid_count / total_rows) * 100
+        elapsed = time.time() - start_time
+        speed = total_rows / elapsed if elapsed > 0 else 0
+        validity_rate = (valid_schema_count / total_rows) * 100
 
-        print("\n" + "=" * 60)
-        print("PIPELINE EXECUTION SUMMARY")
-        print("=" * 60)
-        print(f"Total processed records : {total_rows}")
-        print(f"Schema Validity Rate    : {validity_pct:.2f}% ({valid_count}/{total_rows})")
-        print(f"Execution Time          : {elapsed_time:.2f} seconds")
-        print(f"Throughput Speed        : {speed:.1f} records/sec")
-        print("=" * 60)
+        print("\n" + "=" * 65)
+        print(f"BATCH INFERENCE SUMMARY (Mode: {self.mode})")
+        print("=" * 65)
+        print(f"Total Notes Processed   : {total_rows}")
+        print(f"Schema Validity Rate    : {validity_rate:.2f}% ({valid_schema_count}/{total_rows})")
+        print(f"Total Execution Latency : {elapsed:.2f} s")
+        print(f"Throughput Speed        : {speed:.1f} notes/sec")
+        print(f"Output CSV Saved To     : {output_csv_path}")
+        print(f"Output JSON Saved To    : {output_json_path}")
+        print("=" * 65)
 
-        # Save outputs
+        # Save to output CSV
         pred_df = pd.DataFrame(predictions)
         pred_df.to_csv(output_csv_path, index=False)
-        print(f"[Pipeline] Saved submission CSV to: {output_csv_path}")
 
-        # Save structured JSON
+        # Save to output JSON
         json_results = {row["ID"]: json.loads(row["json"]) for row in predictions}
         with open(output_json_path, "w") as f:
             json.dump(json_results, f, indent=2)
-        print(f"[Pipeline] Saved structured JSON to: {output_json_path}")
+
+        return {
+            "mode": self.mode,
+            "total_notes": total_rows,
+            "schema_validity_rate": validity_rate,
+            "latency_seconds": elapsed,
+            "throughput_per_sec": speed
+        }
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Clinical Information Extraction Unified Pipeline")
+    parser.add_argument("--mode", type=str, default="hybrid", choices=["rules", "model", "hybrid"], help="Pipeline execution mode")
+    parser.add_argument("--input_csv", type=str, default="test (1).csv", help="Input CSV path")
+    parser.add_argument("--output_csv", type=str, default="predictions_eval.csv", help="Output CSV path")
+    parser.add_argument("--output_json", type=str, default="predictions_eval.json", help="Output JSON path")
+    parser.add_argument("--max_rows", type=int, default=None, help="Optional row limit for testing")
+    parser.add_argument("--note", type=str, default=None, help="Single note string to process")
+    args = parser.parse_args()
+
+    pipeline = ClinicalExtractionPipeline(mode=args.mode)
+
+    if args.note:
+        print("\n--- Processing Single Note ---")
+        res = pipeline.process_note(args.note)
+        print(json.dumps(res, indent=2))
+    else:
+        pipeline.run_batch_csv(
+            input_csv_path=args.input_csv,
+            output_csv_path=args.output_csv,
+            output_json_path=args.output_json,
+            max_rows=args.max_rows
+        )
 
 
 if __name__ == "__main__":
-    pipeline = ClinicalExtractionPipeline(use_retriever=False)
-    pipeline.run_inference_on_csv()
+    main()

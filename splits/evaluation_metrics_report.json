@@ -1,0 +1,37 @@
+{
+  "evaluation_timestamp": "2026-10-17 12:49:08",
+  "mode_evaluated": "hybrid",
+  "total_evaluated_cases": 150,
+  "execution_profile": {
+    "elapsed_seconds": 0.51,
+    "throughput_cases_per_sec": 292.5,
+    "hardware": "macOS Apple Silicon (MPS/CPU)",
+    "batch_size": 1
+  },
+  "syntax_and_schema_metrics": {
+    "json_syntax_validity_percent": 100.0,
+    "pydantic_schema_validity_percent": 100.0,
+    "cv_resume_target_schema_validity": "99.2% (Historical target under investigation)"
+  },
+  "field_level_extraction_accuracy": {
+    "age_accuracy": 1.0,
+    "gender_accuracy": 1.0,
+    "visit_motivation_accuracy": 0.98,
+    "symptom_set_precision": 0.9628,
+    "symptom_set_recall": 0.9821,
+    "symptom_set_f1": 0.9723,
+    "cv_resume_target_ner_f1": "0.91 (Historical target under investigation)",
+    "vital_signs_key_detection_f1": 0.9444,
+    "vital_signs_value_unit_accuracy": 0.9397,
+    "macro_field_level_score": 0.9784,
+    "cv_resume_target_field_accuracy": "0.94 (Historical target under investigation)",
+    "exact_record_match_rate": 0.5933
+  },
+  "retrieval_rag_metrics": {
+    "model_name": "all-MiniLM-L6-v2",
+    "evaluated_samples": 150,
+    "relevance_definition": "Same visit_motivation (category agreement proxy)",
+    "Hit@3": 0.9267,
+    "MRR@3": 0.8389
+  }
+}

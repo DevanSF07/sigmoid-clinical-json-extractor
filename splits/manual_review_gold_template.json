@@ -1,0 +1,7267 @@
+[
+  {
+    "id": 1,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 41 years old\n- Gender: Male\n\n**Visit Motivation:** Anemia evaluation\n\n**Chief Complaints and Symptoms:**\nThe patient presents with complaints of anemia, fever, fatigue, difficulty breathing (dyspnea), vomiting, dizziness, blurred vision, wheezing, and pale skin. The patient reports that these symptoms have been progressively worsening over the pa",
+    "candidate_spans": [
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 41",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 67,
+        "end": 79,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 75,
+        "end": 79,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1499,
+        "end": 1502,
+        "text": "114",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1544,
+        "end": 1548,
+        "text": "98.4",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1940,
+        "end": 1945,
+        "text": "132.8",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1991,
+        "end": 1996,
+        "text": "110.6",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 274,
+        "end": 288,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 943,
+        "end": 957,
+        "text": "Blurred Vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 974,
+        "end": 988,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1369,
+        "end": 1383,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2148,
+        "end": 2162,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 221,
+        "end": 241,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 594,
+        "end": 614,
+        "text": "Difficulty Breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 641,
+        "end": 660,
+        "text": "shortness of breath",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 243,
+        "end": 250,
+        "text": "dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 616,
+        "end": 623,
+        "text": "Dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1209,
+        "end": 1216,
+        "text": "Dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2118,
+        "end": 2125,
+        "text": "dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2427,
+        "end": 2434,
+        "text": "dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 263,
+        "end": 272,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 819,
+        "end": 828,
+        "text": "Dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 844,
+        "end": 853,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1358,
+        "end": 1367,
+        "text": "Dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2137,
+        "end": 2146,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 212,
+        "end": 219,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 521,
+        "end": 528,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 554,
+        "end": 561,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1179,
+        "end": 1186,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2109,
+        "end": 2116,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2418,
+        "end": 2425,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 205,
+        "end": 210,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1188,
+        "end": 1193,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2102,
+        "end": 2107,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 304,
+        "end": 313,
+        "text": "pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2178,
+        "end": 2187,
+        "text": "pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2440,
+        "end": 2449,
+        "text": "pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 253,
+        "end": 261,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 740,
+        "end": 748,
+        "text": "Vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 787,
+        "end": 795,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1247,
+        "end": 1255,
+        "text": "Vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2127,
+        "end": 2135,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2695,
+        "end": 2703,
+        "text": "Vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 3394,
+        "end": 3402,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 290,
+        "end": 298,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1041,
+        "end": 1049,
+        "text": "Wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1218,
+        "end": 1226,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2164,
+        "end": 2172,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 103,
+        "end": 109,
+        "text": "Anemia",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Anemia",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 41,
+        "gender": "Male"
+      },
+      "visit_motivation": "Anemia",
+      "symptoms": [
+        "fever",
+        "fatigue",
+        "difficulty_breathing",
+        "vomiting",
+        "dizziness",
+        "blurred_vision",
+        "wheezing",
+        "pale_skin"
+      ],
+      "vital_signs": {
+        "heart_rate": {
+          "value": 114,
+          "unit": "bpm"
+        },
+        "oxygen_saturation": {
+          "value": 98.4,
+          "unit": "%"
+        },
+        "cholesterol_level": {
+          "value": 132.8,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 110.6,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 2,
+    "note_snippet": "Clinical Notes:\n\nPatient: 56-year-old male\nChief Complaint: Allergies\n\nHistory of Present Illness:\nThe patient presents with complaints of allergies. He reports experiencing a runny nose, frequent sneezing, and itchy eyes. The patient also mentions having blurred vision and wheezing. These symptoms have been persistent and bothersome, prompting him to seek medical attention. No known recent change",
+    "candidate_spans": [
+      {
+        "start": 26,
+        "end": 37,
+        "text": "56-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 38,
+        "end": 42,
+        "text": "male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 632,
+        "end": 636,
+        "text": "36.6",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 666,
+        "end": 668,
+        "text": "13",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 705,
+        "end": 707,
+        "text": "99",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 256,
+        "end": 270,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1155,
+        "end": 1169,
+        "text": "Blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1555,
+        "end": 1569,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 211,
+        "end": 221,
+        "text": "itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 176,
+        "end": 186,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 888,
+        "end": 903,
+        "text": "clear discharge",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 197,
+        "end": 205,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 188,
+        "end": 205,
+        "text": "frequent sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 275,
+        "end": 283,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 911,
+        "end": 919,
+        "text": "Wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1436,
+        "end": 1444,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 60,
+        "end": 69,
+        "text": "Allergies",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Allergies",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 56,
+        "gender": "Male"
+      },
+      "visit_motivation": "Allergies",
+      "symptoms": [
+        "runny_nose",
+        "sneezing",
+        "itchy_eyes",
+        "blurred_vision",
+        "wheezing"
+      ],
+      "vital_signs": {
+        "temperature": {
+          "value": 36.6,
+          "unit": "\u00b0C"
+        },
+        "respiratory_rate": {
+          "value": 13,
+          "unit": "breaths/min"
+        },
+        "glucose_level": {
+          "value": 99.0,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 3,
+    "note_snippet": "Clinical Notes:\n\nPatient: 73-year-old female\nChief Complaint: Follow-up for Type 2 Diabetes\n\nHistory of Present Illness:\nPatient presents for routine diabetes follow-up. She reports multiple concerning symptoms, including fever, headache, difficulty breathing, chest pain, vomiting, sneezing, loss of taste and smell, increased thirst, blurred vision, wheezing, night sweats, painful urination, pale ",
+    "candidate_spans": [
+      {
+        "start": 26,
+        "end": 37,
+        "text": "73-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 38,
+        "end": 44,
+        "text": "female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1023,
+        "end": 1025,
+        "text": "92",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1068,
+        "end": 1070,
+        "text": "18",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1102,
+        "end": 1105,
+        "text": "173",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1129,
+        "end": 1134,
+        "text": "224.8",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 336,
+        "end": 350,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 982,
+        "end": 996,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 261,
+        "end": 271,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 744,
+        "end": 754,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1980,
+        "end": 1990,
+        "text": "Chest Pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 239,
+        "end": 259,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 684,
+        "end": 704,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 410,
+        "end": 434,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 909,
+        "end": 933,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 222,
+        "end": 227,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 571,
+        "end": 576,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1611,
+        "end": 1616,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 229,
+        "end": 237,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 614,
+        "end": 622,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 318,
+        "end": 334,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 865,
+        "end": 881,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 293,
+        "end": 306,
+        "text": "loss of taste",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 634,
+        "end": 647,
+        "text": "loss of taste",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1644,
+        "end": 1657,
+        "text": "loss of taste",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 293,
+        "end": 316,
+        "text": "loss of taste and smell",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 634,
+        "end": 657,
+        "text": "loss of taste and smell",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1644,
+        "end": 1663,
+        "text": "loss of taste/smell",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 362,
+        "end": 374,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 581,
+        "end": 593,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 376,
+        "end": 393,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 823,
+        "end": 840,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1762,
+        "end": 1779,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 395,
+        "end": 404,
+        "text": "pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 953,
+        "end": 962,
+        "text": "pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 283,
+        "end": 291,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 624,
+        "end": 632,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 273,
+        "end": 281,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 786,
+        "end": 794,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 352,
+        "end": 360,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 706,
+        "end": 714,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1263,
+        "end": 1271,
+        "text": "Wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 83,
+        "end": 91,
+        "text": "Diabetes",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Diabetes (Type 2)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [
+      {
+        "start": 1864,
+        "end": 1871,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "UNCERTAIN",
+        "trigger": "suspected",
+        "confidence": 0.5
+      }
+    ],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 73,
+        "gender": "Female"
+      },
+      "visit_motivation": "Diabetes (Type 2)",
+      "symptoms": [
+        "fever",
+        "headache",
+        "difficulty_breathing",
+        "chest_pain",
+        "vomiting",
+        "sneezing",
+        "loss_of_taste_smell",
+        "increased_thirst",
+        "blurred_vision",
+        "wheezing",
+        "night_sweats",
+        "painful_urination",
+        "pale_skin",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "heart_rate": {
+          "value": 92,
+          "unit": "bpm"
+        },
+        "respiratory_rate": {
+          "value": 18,
+          "unit": "breaths/min"
+        },
+        "cholesterol_level": {
+          "value": 173.0,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 224.8,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 4,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 32 years old\n- Gender: Female\n\n**Visit Motivation:** Allergies\n\n**Symptoms Reported:**\n- Fatigue\n- Abdominal pain\n- Runny nose\n- Rash\n- Joint pain\n- Sneezing\n- Night sweats\n- Weight loss (unspecified amount)\n- Facial pain\n- Heartburn\n- Sadness and difficulty concentrating\n\n**Vital Signs:**\n- Blood Pressure: 97/79 mmHg (hypotensive systolic readin",
+    "candidate_spans": [
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 32",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 67,
+        "end": 81,
+        "text": "Gender: Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 75,
+        "end": 81,
+        "text": "Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 361,
+        "end": 371,
+        "text": "97/79 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 418,
+        "end": 422,
+        "text": "36.9",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 487,
+        "end": 489,
+        "text": "70",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 536,
+        "end": 538,
+        "text": "19",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 665,
+        "end": 669,
+        "text": "98.2",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 697,
+        "end": 702,
+        "text": "139.8",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 151,
+        "end": 165,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 849,
+        "end": 863,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1511,
+        "end": 1525,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 300,
+        "end": 324,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1045,
+        "end": 1069,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2194,
+        "end": 2218,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 262,
+        "end": 273,
+        "text": "Facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 952,
+        "end": 963,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1931,
+        "end": 1942,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 141,
+        "end": 148,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 840,
+        "end": 847,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1209,
+        "end": 1216,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1629,
+        "end": 1636,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1815,
+        "end": 1822,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2133,
+        "end": 2140,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 276,
+        "end": 285,
+        "text": "Heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1021,
+        "end": 1030,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 188,
+        "end": 198,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 936,
+        "end": 946,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1915,
+        "end": 1925,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 212,
+        "end": 224,
+        "text": "Night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 982,
+        "end": 994,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1947,
+        "end": 1959,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 181,
+        "end": 185,
+        "text": "Rash",
+        "canonical": "rash",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 930,
+        "end": 934,
+        "text": "rash",
+        "canonical": "rash",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1905,
+        "end": 1909,
+        "text": "rash",
+        "canonical": "rash",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 168,
+        "end": 178,
+        "text": "Runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 908,
+        "end": 918,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1883,
+        "end": 1893,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 288,
+        "end": 295,
+        "text": "Sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1032,
+        "end": 1039,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2182,
+        "end": 2189,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 201,
+        "end": 209,
+        "text": "Sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 920,
+        "end": 928,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1895,
+        "end": 1903,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 227,
+        "end": 238,
+        "text": "Weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1008,
+        "end": 1019,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1641,
+        "end": 1652,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2145,
+        "end": 2156,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 996,
+        "end": 1019,
+        "text": "unexplained weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 105,
+        "end": 114,
+        "text": "Allergies",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Allergies",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 32,
+        "gender": "Female"
+      },
+      "visit_motivation": "Allergies",
+      "symptoms": [
+        "fatigue",
+        "abdominal_pain",
+        "runny_nose",
+        "rash",
+        "joint_pain",
+        "sneezing",
+        "night_sweats",
+        "weight_loss",
+        "facial_pain",
+        "heartburn",
+        "sadness",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 97,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 79,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.9,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 70,
+          "unit": "bpm"
+        },
+        "respiratory_rate": {
+          "value": 19,
+          "unit": "breaths/min"
+        },
+        "oxygen_saturation": {
+          "value": 98.2,
+          "unit": "%"
+        },
+        "glucose_level": {
+          "value": 139.8,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 5,
+    "note_snippet": "**Clinical Notes**\n\n**Patient:** Male, age 51\n\n**Visit Motivation:** Tuberculosis (TB)\n\n**Chief Complaints:**\n- Fever\n- Cough\n- Nausea\n- Joint pain\n- Sneezing \n- Frequent urination\n- Blurred vision\n- Weight loss\n- Painful urination\n- Facial pain\n- Difficulty concentrating\n\n**History of Present Illness:**\nThe patient presents with a history of progressive symptoms over the past few months. He repor",
+    "candidate_spans": [
+      {
+        "start": 39,
+        "end": 45,
+        "text": "age 51",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 39,
+        "end": 45,
+        "text": "age 51",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 33,
+        "end": 37,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 971,
+        "end": 981,
+        "text": "92/74 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1021,
+        "end": 1023,
+        "text": "19",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1057,
+        "end": 1062,
+        "text": "125.7",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1086,
+        "end": 1090,
+        "text": "70.7",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 183,
+        "end": 197,
+        "text": "Blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 120,
+        "end": 125,
+        "text": "Cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 488,
+        "end": 493,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1554,
+        "end": 1559,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 248,
+        "end": 272,
+        "text": "Difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1422,
+        "end": 1446,
+        "text": "Difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1949,
+        "end": 1973,
+        "text": "Difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 234,
+        "end": 245,
+        "text": "Facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 649,
+        "end": 660,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 112,
+        "end": 117,
+        "text": "Fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 416,
+        "end": 421,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1547,
+        "end": 1552,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1749,
+        "end": 1754,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 162,
+        "end": 180,
+        "text": "Frequent urination",
+        "canonical": "frequent_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1807,
+        "end": 1825,
+        "text": "Frequent urination",
+        "canonical": "frequent_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 137,
+        "end": 147,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 562,
+        "end": 572,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 128,
+        "end": 134,
+        "text": "Nausea",
+        "canonical": "nausea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 551,
+        "end": 557,
+        "text": "nausea",
+        "canonical": "nausea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 214,
+        "end": 231,
+        "text": "Painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 740,
+        "end": 757,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1830,
+        "end": 1847,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 150,
+        "end": 158,
+        "text": "Sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 602,
+        "end": 610,
+        "text": "Sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 200,
+        "end": 211,
+        "text": "Weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1561,
+        "end": 1572,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 69,
+        "end": 81,
+        "text": "Tuberculosis",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Tuberculosis (TB)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [
+      {
+        "start": 470,
+        "end": 482,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 0.5
+      },
+      {
+        "start": 1321,
+        "end": 1329,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 0.5
+      }
+    ],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 51,
+        "gender": "Male"
+      },
+      "visit_motivation": "Tuberculosis (TB)",
+      "symptoms": [
+        "fever",
+        "cough",
+        "nausea",
+        "joint_pain",
+        "sneezing",
+        "frequent_urination",
+        "blurred_vision",
+        "weight_loss",
+        "painful_urination",
+        "facial_pain",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 92,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 74,
+            "unit": "mmHg"
+          }
+        },
+        "respiratory_rate": {
+          "value": 19,
+          "unit": "breaths/min"
+        },
+        "cholesterol_level": {
+          "value": 125.7,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 70.7,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 6,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 74\n- Gender: Male\n\n**Visit Motivation:**\n- The patient has presented with complaints of depression.\n\n**Symptoms:**\n- Fever\n- Cough\n- Fatigue\n- Difficulty breathing\n- Sadness\n- Anxiety\n\n**Vital Signs:**\n- Blood Pressure: 114/71 mmHg (within normal range)\n- Heart Rate: 80 bpm (within normal range)\n- Cholesterol Level: 176.5 mg/dL (within normal ran",
+    "candidate_spans": [
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 74",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 57,
+        "end": 69,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 65,
+        "end": 69,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 272,
+        "end": 283,
+        "text": "114/71 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 320,
+        "end": 322,
+        "text": "80",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 370,
+        "end": 375,
+        "text": "176.5",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 421,
+        "end": 425,
+        "text": "83.2",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 228,
+        "end": 235,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 846,
+        "end": 853,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1163,
+        "end": 1170,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 177,
+        "end": 182,
+        "text": "Cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 602,
+        "end": 607,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 995,
+        "end": 1000,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 195,
+        "end": 215,
+        "text": "Difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 609,
+        "end": 629,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1015,
+        "end": 1035,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 185,
+        "end": 192,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1002,
+        "end": 1009,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 169,
+        "end": 174,
+        "text": "Fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 988,
+        "end": 993,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 218,
+        "end": 225,
+        "text": "Sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 834,
+        "end": 841,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1151,
+        "end": 1158,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 140,
+        "end": 150,
+        "text": "depression",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Depression",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 74,
+        "gender": "Male"
+      },
+      "visit_motivation": "Depression",
+      "symptoms": [
+        "fever",
+        "cough",
+        "fatigue",
+        "difficulty_breathing",
+        "sadness",
+        "anxiety"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 114,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 71,
+            "unit": "mmHg"
+          }
+        },
+        "heart_rate": {
+          "value": 80,
+          "unit": "bpm"
+        },
+        "cholesterol_level": {
+          "value": 176.5,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 83.2,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 7,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\nAge: 21 years old\nGender: Female\nChief Complaint: Asthma exacerbation\n\n**History of Present Illness:**\nThe patient is a 21-year-old female presenting with a history of asthma, now experiencing an exacerbation of symptoms. She reports a productive cough, fatigue, difficulty breathing, chest pain, vomiting, runny nose, sneezing, increased thirst, blurred ",
+    "candidate_spans": [
+      {
+        "start": 165,
+        "end": 176,
+        "text": "21-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 45,
+        "end": 52,
+        "text": "Age: 21",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 63,
+        "end": 77,
+        "text": "Gender: Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 71,
+        "end": 77,
+        "text": "Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 786,
+        "end": 797,
+        "text": "112/68 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 835,
+        "end": 839,
+        "text": "37.4",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 878,
+        "end": 880,
+        "text": "85",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 975,
+        "end": 977,
+        "text": "12",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 392,
+        "end": 406,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 330,
+        "end": 340,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 292,
+        "end": 297,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 281,
+        "end": 297,
+        "text": "productive cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 308,
+        "end": 328,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 433,
+        "end": 441,
+        "text": "ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 299,
+        "end": 306,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 418,
+        "end": 427,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1325,
+        "end": 1334,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1592,
+        "end": 1601,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 374,
+        "end": 390,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 352,
+        "end": 362,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 364,
+        "end": 372,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 342,
+        "end": 350,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 408,
+        "end": 416,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1148,
+        "end": 1156,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 95,
+        "end": 101,
+        "text": "Asthma",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Asthma",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 21,
+        "gender": "Female"
+      },
+      "visit_motivation": "Asthma",
+      "symptoms": [
+        "cough",
+        "fatigue",
+        "difficulty_breathing",
+        "chest_pain",
+        "vomiting",
+        "runny_nose",
+        "sneezing",
+        "increased_thirst",
+        "blurred_vision",
+        "wheezing",
+        "heartburn",
+        "ear_pain"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 112,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 68,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 37.4,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 85,
+          "unit": "bpm"
+        },
+        "respiratory_rate": {
+          "value": 12,
+          "unit": "breaths/min"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 8,
+    "note_snippet": "**Clinical Note:**\n\n**Patient Information:**\n- Age: 90 years old\n- Gender: Male\n\n**Visit Motivation:** Hypertension (High Blood Pressure)\n\n**Chief Complaints/Symptoms:**\n1. Difficulty breathing\n2. Chest pain\n3. Abdominal pain\n4. Joint pain\n5. Dizziness\n6. Sneezing\n7. Itchy eyes\n\n**History of Present Illness:**\nThe patient, a 90-year-old male with a history of hypertension, presents today with comp",
+    "candidate_spans": [
+      {
+        "start": 327,
+        "end": 338,
+        "text": "90-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 90",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 67,
+        "end": 79,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 75,
+        "end": 79,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1723,
+        "end": 1734,
+        "text": "133/97 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1773,
+        "end": 1777,
+        "text": "36.9",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1797,
+        "end": 1799,
+        "text": "91",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 211,
+        "end": 225,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 197,
+        "end": 207,
+        "text": "Chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 724,
+        "end": 734,
+        "text": "Chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2481,
+        "end": 2491,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 173,
+        "end": 193,
+        "text": "Difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 784,
+        "end": 791,
+        "text": "Dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2469,
+        "end": 2476,
+        "text": "dyspnea",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 243,
+        "end": 252,
+        "text": "Dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 498,
+        "end": 507,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1016,
+        "end": 1025,
+        "text": "Dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 268,
+        "end": 278,
+        "text": "Itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 523,
+        "end": 533,
+        "text": "itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2528,
+        "end": 2538,
+        "text": "itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 229,
+        "end": 239,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 486,
+        "end": 496,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1388,
+        "end": 1398,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 3375,
+        "end": 3385,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 256,
+        "end": 264,
+        "text": "Sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 509,
+        "end": 517,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2515,
+        "end": 2523,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 103,
+        "end": 115,
+        "text": "Hypertension",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Hypertension (High Blood Pressure)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [
+      {
+        "start": 858,
+        "end": 872,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 2247,
+        "end": 2256,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 1102,
+        "end": 1112,
+        "text": "itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 943,
+        "end": 953,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 2154,
+        "end": 2164,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "without"
+      },
+      {
+        "start": 877,
+        "end": 883,
+        "text": "nausea",
+        "canonical": "nausea",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 1089,
+        "end": 1097,
+        "text": "Sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 884,
+        "end": 892,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 1963,
+        "end": 1971,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      }
+    ],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 90,
+        "gender": "Male"
+      },
+      "visit_motivation": "Hypertension (High Blood Pressure)",
+      "symptoms": [
+        "difficulty_breathing",
+        "chest_pain",
+        "abdominal_pain",
+        "joint_pain",
+        "dizziness",
+        "sneezing",
+        "itchy_eyes"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 133,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 97,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.9,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 91,
+          "unit": "bpm"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 9,
+    "note_snippet": "Clinical Notes:\n\nPatient: 25-year-old female\nChief Complaint: Influenza-like symptoms\n\nHistory of Present Illness:\nThe patient presents with symptoms consistent with influenza. She reports fever, cough, headache, and sore throat. Additionally, she complains of chest pain, dizziness, and night sweats. The patient also mentions facial pain, heartburn, and dry skin. No recent travel or known exposure",
+    "candidate_spans": [
+      {
+        "start": 26,
+        "end": 37,
+        "text": "25-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 38,
+        "end": 44,
+        "text": "female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 555,
+        "end": 559,
+        "text": "39.6",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 595,
+        "end": 598,
+        "text": "111",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 728,
+        "end": 733,
+        "text": "182.4",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 777,
+        "end": 782,
+        "text": "118.6",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 261,
+        "end": 271,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1055,
+        "end": 1065,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 196,
+        "end": 201,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1259,
+        "end": 1264,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1569,
+        "end": 1577,
+        "text": "coughing",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 273,
+        "end": 282,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 356,
+        "end": 364,
+        "text": "dry skin",
+        "canonical": "dry_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1461,
+        "end": 1469,
+        "text": "dry skin",
+        "canonical": "dry_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 328,
+        "end": 339,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 189,
+        "end": 194,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1252,
+        "end": 1257,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1450,
+        "end": 1455,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1761,
+        "end": 1766,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1307,
+        "end": 1327,
+        "text": "elevated temperature",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 203,
+        "end": 211,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1266,
+        "end": 1274,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 341,
+        "end": 350,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1530,
+        "end": 1539,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2008,
+        "end": 2017,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 288,
+        "end": 300,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 217,
+        "end": 228,
+        "text": "sore throat",
+        "canonical": "sore_throat",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1276,
+        "end": 1287,
+        "text": "sore throat",
+        "canonical": "sore_throat",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 62,
+        "end": 71,
+        "text": "Influenza",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Influenza (Flu)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 25,
+        "gender": "Female"
+      },
+      "visit_motivation": "Influenza (Flu)",
+      "symptoms": [
+        "fever",
+        "cough",
+        "headache",
+        "sore_throat",
+        "chest_pain",
+        "dizziness",
+        "night_sweats",
+        "facial_pain",
+        "heartburn",
+        "dry_skin"
+      ],
+      "vital_signs": {
+        "temperature": {
+          "value": 39.6,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 111,
+          "unit": "bpm"
+        },
+        "cholesterol_level": {
+          "value": 182.4,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 118.6,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 10,
+    "note_snippet": "Clinical Notes:\n\nPatient: 44-year-old female\nChief Complaint: Concerns about Tuberculosis (TB)\n\nHistory of Present Illness:\nThe patient presents with concerns about possible tuberculosis. She reports a persistent cough of unknown duration, accompanied by fatigue, abdominal pain, and joint pain. The patient also notes recent episodes of sneezing, unexplained weight loss, ear pain, and increased anx",
+    "candidate_spans": [
+      {
+        "start": 26,
+        "end": 37,
+        "text": "44-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 38,
+        "end": 44,
+        "text": "female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 877,
+        "end": 887,
+        "text": "98/73 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 911,
+        "end": 915,
+        "text": "36.6",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 924,
+        "end": 926,
+        "text": "15",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 949,
+        "end": 953,
+        "text": "95.7",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 264,
+        "end": 278,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 716,
+        "end": 730,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1343,
+        "end": 1357,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1900,
+        "end": 1914,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 397,
+        "end": 404,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 786,
+        "end": 793,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1500,
+        "end": 1507,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2137,
+        "end": 2144,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2137,
+        "end": 2153,
+        "text": "anxiety symptoms",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 213,
+        "end": 218,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 682,
+        "end": 687,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 373,
+        "end": 381,
+        "text": "ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 764,
+        "end": 772,
+        "text": "Ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1547,
+        "end": 1555,
+        "text": "Ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1949,
+        "end": 1957,
+        "text": "ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 255,
+        "end": 262,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 634,
+        "end": 641,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1278,
+        "end": 1285,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 284,
+        "end": 294,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 748,
+        "end": 758,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1417,
+        "end": 1427,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 338,
+        "end": 346,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 689,
+        "end": 697,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 360,
+        "end": 371,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 646,
+        "end": 657,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1290,
+        "end": 1301,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 348,
+        "end": 371,
+        "text": "unexplained weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 77,
+        "end": 89,
+        "text": "Tuberculosis",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Tuberculosis (TB)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 44,
+        "gender": "Female"
+      },
+      "visit_motivation": "Tuberculosis (TB)",
+      "symptoms": [
+        "cough",
+        "fatigue",
+        "abdominal_pain",
+        "joint_pain",
+        "sneezing",
+        "weight_loss",
+        "ear_pain",
+        "anxiety"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 98,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 73,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.6,
+          "unit": "\u00b0C"
+        },
+        "respiratory_rate": {
+          "value": 15,
+          "unit": "breaths/min"
+        },
+        "oxygen_saturation": {
+          "value": 95.7,
+          "unit": "%"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 11,
+    "note_snippet": "Clinical Notes:\n\nPatient: 68-year-old female\nChief Complaint: Follow-up for Type 2 Diabetes\n\nHistory of Present Illness:\nPatient presents for routine diabetes follow-up. She reports multiple symptoms including fever, cough, fatigue, vomiting, diarrhea, and runny nose, suggesting a possible viral infection. Additionally, she complains of increased thirst, frequent urination, blurred vision, painful",
+    "candidate_spans": [
+      {
+        "start": 26,
+        "end": 37,
+        "text": "68-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 38,
+        "end": 44,
+        "text": "female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 648,
+        "end": 658,
+        "text": "92/67 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 679,
+        "end": 683,
+        "text": "36.8",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 690,
+        "end": 692,
+        "text": "74",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 705,
+        "end": 709,
+        "text": "97.5",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 724,
+        "end": 729,
+        "text": "165.7",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 377,
+        "end": 391,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1273,
+        "end": 1287,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 217,
+        "end": 222,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 950,
+        "end": 955,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 939,
+        "end": 955,
+        "text": "productive cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 243,
+        "end": 251,
+        "text": "diarrhea",
+        "canonical": "diarrhea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2095,
+        "end": 2103,
+        "text": "diarrhea",
+        "canonical": "diarrhea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 416,
+        "end": 440,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1131,
+        "end": 1155,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2219,
+        "end": 2243,
+        "text": "Difficulty Concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 224,
+        "end": 231,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 210,
+        "end": 215,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 357,
+        "end": 375,
+        "text": "frequent urination",
+        "canonical": "frequent_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 339,
+        "end": 355,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1257,
+        "end": 1267,
+        "text": "polydipsia",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 393,
+        "end": 410,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1865,
+        "end": 1882,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 257,
+        "end": 267,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1616,
+        "end": 1626,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 233,
+        "end": 241,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2082,
+        "end": 2090,
+        "text": "vomiting",
+        "canonical": "vomiting",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 83,
+        "end": 91,
+        "text": "Diabetes",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Diabetes (Type 2)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 68,
+        "gender": "Female"
+      },
+      "visit_motivation": "Diabetes (Type 2)",
+      "symptoms": [
+        "fever",
+        "cough",
+        "fatigue",
+        "vomiting",
+        "diarrhea",
+        "runny_nose",
+        "increased_thirst",
+        "frequent_urination",
+        "blurred_vision",
+        "painful_urination",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 92,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 67,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.8,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 74,
+          "unit": "bpm"
+        },
+        "oxygen_saturation": {
+          "value": 97.5,
+          "unit": "%"
+        },
+        "cholesterol_level": {
+          "value": 165.7,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 12,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\nAge: 24\nGender: Male\n\n**Chief Complaint:**\nPatient presents with symptoms of anxiety disorders, including difficulty concentrating and anxiety.\n\n**History of Present Illness:**\nThe patient reports experiencing symptoms of anxiety, difficulty concentrating, and difficulty breathing over the past few weeks. Additionally, the patient has been experiencing ",
+    "candidate_spans": [
+      {
+        "start": 45,
+        "end": 52,
+        "text": "Age: 24",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 53,
+        "end": 65,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 61,
+        "end": 65,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 782,
+        "end": 793,
+        "text": "116/75 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 836,
+        "end": 838,
+        "text": "15",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 894,
+        "end": 896,
+        "text": "95",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 943,
+        "end": 948,
+        "text": "165.4",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 122,
+        "end": 129,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 180,
+        "end": 187,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 267,
+        "end": 274,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1290,
+        "end": 1297,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1373,
+        "end": 1380,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1478,
+        "end": 1485,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1656,
+        "end": 1663,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1873,
+        "end": 1880,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2206,
+        "end": 2213,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1020,
+        "end": 1027,
+        "text": "anxious",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 412,
+        "end": 420,
+        "text": "diarrhea",
+        "canonical": "diarrhea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1419,
+        "end": 1427,
+        "text": "diarrhea",
+        "canonical": "diarrhea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 306,
+        "end": 326,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1329,
+        "end": 1349,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 151,
+        "end": 175,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 276,
+        "end": 300,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1299,
+        "end": 1323,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 422,
+        "end": 431,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1429,
+        "end": 1438,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 437,
+        "end": 448,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1172,
+        "end": 1183,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1444,
+        "end": 1455,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 489,
+        "end": 500,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1605,
+        "end": 1616,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 475,
+        "end": 500,
+        "text": "unintentional weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1591,
+        "end": 1616,
+        "text": "unintentional weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 122,
+        "end": 139,
+        "text": "anxiety disorders",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Anxiety Disorders",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [
+      {
+        "start": 1032,
+        "end": 1040,
+        "text": "restless",
+        "canonical": "restlessness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 0.5
+      }
+    ],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 24,
+        "gender": "Male"
+      },
+      "visit_motivation": "Anxiety Disorders",
+      "symptoms": [
+        "difficulty_breathing",
+        "diarrhea",
+        "dizziness",
+        "weight_loss",
+        "facial_pain",
+        "anxiety",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 116,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 75,
+            "unit": "mmHg"
+          }
+        },
+        "respiratory_rate": {
+          "value": 15,
+          "unit": "breaths/min"
+        },
+        "oxygen_saturation": {
+          "value": 95.0,
+          "unit": "%"
+        },
+        "cholesterol_level": {
+          "value": 165.4,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 13,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 33 years\n- Gender: Male\n\n**Chief Complaint:**\nThe patient presents with symptoms of depression, which is the primary motivation for this visit.\n\n**History of Present Illness:**\nThe patient reports experiencing fatigue, headache, chest pain, itchy eyes, wheezing, heartburn, ear pain, sadness, and restlessness. These symptoms have been persistent a",
+    "candidate_spans": [
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 33",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 63,
+        "end": 75,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 71,
+        "end": 75,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 725,
+        "end": 735,
+        "text": "91/77 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 780,
+        "end": 782,
+        "text": "72",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 830,
+        "end": 835,
+        "text": "147.9",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 917,
+        "end": 922,
+        "text": "132.9",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 281,
+        "end": 291,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 326,
+        "end": 334,
+        "text": "ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 262,
+        "end": 269,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 271,
+        "end": 279,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 315,
+        "end": 324,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 293,
+        "end": 303,
+        "text": "itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 349,
+        "end": 361,
+        "text": "restlessness",
+        "canonical": "restlessness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 336,
+        "end": 343,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 305,
+        "end": 313,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 136,
+        "end": 146,
+        "text": "depression",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Depression",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 33,
+        "gender": "Male"
+      },
+      "visit_motivation": "Depression",
+      "symptoms": [
+        "fatigue",
+        "headache",
+        "chest_pain",
+        "itchy_eyes",
+        "wheezing",
+        "heartburn",
+        "ear_pain",
+        "sadness",
+        "restlessness"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 91,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 77,
+            "unit": "mmHg"
+          }
+        },
+        "heart_rate": {
+          "value": 72,
+          "unit": "bpm"
+        },
+        "cholesterol_level": {
+          "value": 147.9,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 132.9,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 14,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 32\n- Gender: Female\n\n**Visit Motivation:**\n- Patient presents with concerns related to Gastroesophageal Reflux Disease (GERD).\n\n**Symptoms:**\n- Fatigue\n- Sore throat\n- Difficulty breathing\n- Chest pain\n- Nausea\n- Increased thirst\n- Blurred vision\n- Painful urination\n- Heartburn\n- Pale skin\n- Anxiety\n\n**Vital Signs:**\n- Temperature: 36.6 \u00b0C (withi",
+    "candidate_spans": [
+      {
+        "start": 599,
+        "end": 610,
+        "text": "32-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 32",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 57,
+        "end": 71,
+        "text": "Gender: Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 65,
+        "end": 71,
+        "text": "Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 386,
+        "end": 390,
+        "text": "36.6",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 437,
+        "end": 441,
+        "text": "95.9",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 509,
+        "end": 514,
+        "text": "117.6",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 345,
+        "end": 352,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1311,
+        "end": 1318,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1758,
+        "end": 1765,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 284,
+        "end": 298,
+        "text": "Blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 936,
+        "end": 950,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 243,
+        "end": 253,
+        "text": "Chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 712,
+        "end": 722,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1107,
+        "end": 1117,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1559,
+        "end": 1569,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 220,
+        "end": 240,
+        "text": "Difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 686,
+        "end": 706,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1534,
+        "end": 1554,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 196,
+        "end": 203,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 664,
+        "end": 671,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 923,
+        "end": 930,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 321,
+        "end": 330,
+        "text": "Heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 265,
+        "end": 281,
+        "text": "Increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 905,
+        "end": 921,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 256,
+        "end": 262,
+        "text": "Nausea",
+        "canonical": "nausea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 301,
+        "end": 318,
+        "text": "Painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 333,
+        "end": 342,
+        "text": "Pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 206,
+        "end": 217,
+        "text": "Sore throat",
+        "canonical": "sore_throat",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 673,
+        "end": 684,
+        "text": "sore throat",
+        "canonical": "sore_throat",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 139,
+        "end": 170,
+        "text": "Gastroesophageal Reflux Disease",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Gastroesophageal Reflux Disease (GERD)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 32,
+        "gender": "Female"
+      },
+      "visit_motivation": "Gastroesophageal Reflux Disease (GERD)",
+      "symptoms": [
+        "fatigue",
+        "sore_throat",
+        "difficulty_breathing",
+        "chest_pain",
+        "nausea",
+        "increased_thirst",
+        "blurred_vision",
+        "painful_urination",
+        "heartburn",
+        "pale_skin",
+        "anxiety"
+      ],
+      "vital_signs": {
+        "temperature": {
+          "value": 36.6,
+          "unit": "\u00b0C"
+        },
+        "oxygen_saturation": {
+          "value": 95.9,
+          "unit": "%"
+        },
+        "glucose_level": {
+          "value": 117.6,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 15,
+    "note_snippet": "Clinical Notes:\n\nPatient: 53-year-old male\nChief Complaint: Follow-up for Coronary Artery Disease (CAD)\n\nHistory of Present Illness:\nThe patient is a 53-year-old male with a known history of coronary artery disease presenting for follow-up. He reports experiencing a persistent cough, fatigue, and difficulty breathing. The patient also complains of chest pain, which he describes as a pressure-like ",
+    "candidate_spans": [
+      {
+        "start": 26,
+        "end": 37,
+        "text": "53-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 38,
+        "end": 42,
+        "text": "male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1135,
+        "end": 1146,
+        "text": "117/61 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1162,
+        "end": 1166,
+        "text": "36.7",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1183,
+        "end": 1185,
+        "text": "73",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1207,
+        "end": 1212,
+        "text": "138.1",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 477,
+        "end": 491,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1994,
+        "end": 2008,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2224,
+        "end": 2231,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2422,
+        "end": 2429,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 650,
+        "end": 657,
+        "text": "anxious",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 350,
+        "end": 360,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1639,
+        "end": 1649,
+        "text": "Chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2710,
+        "end": 2720,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 278,
+        "end": 283,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1838,
+        "end": 1843,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 298,
+        "end": 318,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1845,
+        "end": 1865,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 692,
+        "end": 716,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 285,
+        "end": 292,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 544,
+        "end": 553,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2013,
+        "end": 2022,
+        "text": "heartburn",
+        "canonical": "heartburn",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 496,
+        "end": 508,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2160,
+        "end": 2172,
+        "text": "Night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 663,
+        "end": 671,
+        "text": "restless",
+        "canonical": "restlessness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 637,
+        "end": 648,
+        "text": "feeling sad",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 53,
+        "gender": "Male"
+      },
+      "visit_motivation": "Heart Disease (Coronary Artery Disease)",
+      "symptoms": [
+        "cough",
+        "fatigue",
+        "difficulty_breathing",
+        "chest_pain",
+        "abdominal_pain",
+        "night_sweats",
+        "heartburn",
+        "sadness",
+        "anxiety",
+        "restlessness",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 117,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 61,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.7,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 73,
+          "unit": "bpm"
+        },
+        "glucose_level": {
+          "value": 138.1,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 16,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 36 years old\n- Gender: Male\n\n**Visit Motivation:** Anxiety Disorders\n\n**Chief Complaints and Symptoms:**\nThe patient presents with a combination of symptoms that include difficulty breathing, chest pain, joint pain, dizziness, increased thirst, blurred vision, wheezing, pale skin, anxiety, restlessness, and difficulty concentrating. These complai",
+    "candidate_spans": [
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 36",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 67,
+        "end": 79,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 75,
+        "end": 79,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 996,
+        "end": 998,
+        "text": "79",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1047,
+        "end": 1049,
+        "text": "19",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1146,
+        "end": 1151,
+        "text": "125.8",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 103,
+        "end": 110,
+        "text": "Anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 334,
+        "end": 341,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1803,
+        "end": 1810,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2481,
+        "end": 2488,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1250,
+        "end": 1257,
+        "text": "anxious",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 297,
+        "end": 311,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 863,
+        "end": 877,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1922,
+        "end": 1936,
+        "text": "blurred vision",
+        "canonical": "blurred_vision",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 244,
+        "end": 254,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 610,
+        "end": 620,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1734,
+        "end": 1744,
+        "text": "Chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 222,
+        "end": 242,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1599,
+        "end": 1619,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2147,
+        "end": 2166,
+        "text": "shortness of breath",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2449,
+        "end": 2468,
+        "text": "shortness of breath",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 361,
+        "end": 385,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 268,
+        "end": 277,
+        "text": "dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 765,
+        "end": 774,
+        "text": "Dizziness",
+        "canonical": "dizziness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 279,
+        "end": 295,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 842,
+        "end": 858,
+        "text": "Increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1901,
+        "end": 1917,
+        "text": "increased thirst",
+        "canonical": "increased_thirst",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 256,
+        "end": 266,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 705,
+        "end": 715,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 323,
+        "end": 332,
+        "text": "pale skin",
+        "canonical": "pale_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 343,
+        "end": 355,
+        "text": "restlessness",
+        "canonical": "restlessness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 313,
+        "end": 321,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1350,
+        "end": 1358,
+        "text": "Wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1624,
+        "end": 1632,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2436,
+        "end": 2444,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 103,
+        "end": 120,
+        "text": "Anxiety Disorders",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Anxiety Disorders",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 36,
+        "gender": "Male"
+      },
+      "visit_motivation": "Anxiety Disorders",
+      "symptoms": [
+        "difficulty_breathing",
+        "chest_pain",
+        "joint_pain",
+        "dizziness",
+        "increased_thirst",
+        "blurred_vision",
+        "wheezing",
+        "pale_skin",
+        "anxiety",
+        "restlessness",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "heart_rate": {
+          "value": 79,
+          "unit": "bpm"
+        },
+        "respiratory_rate": {
+          "value": 19,
+          "unit": "breaths/min"
+        },
+        "cholesterol_level": {
+          "value": 125.8,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 17,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\nAge: 30\nGender: Male\n\n**Chief Complaint:** \nThe patient presents with a primary concern of pneumonia.\n\n**History of Present Illness:**\nThe patient reports experiencing a fever, persistent cough, fatigue, headache, chest pain, nausea, loss of taste and smell, ear pain, and feelings of sadness. These symptoms have been progressive over the past few days, ",
+    "candidate_spans": [
+      {
+        "start": 45,
+        "end": 52,
+        "text": "Age: 30",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 53,
+        "end": 65,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 61,
+        "end": 65,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 625,
+        "end": 636,
+        "text": "107/80 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 657,
+        "end": 659,
+        "text": "24",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 704,
+        "end": 708,
+        "text": "92.8",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 764,
+        "end": 767,
+        "text": "128",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 793,
+        "end": 798,
+        "text": "103.2",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 259,
+        "end": 269,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1295,
+        "end": 1305,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 233,
+        "end": 238,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1265,
+        "end": 1270,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 304,
+        "end": 312,
+        "text": "ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1442,
+        "end": 1450,
+        "text": "ear pain",
+        "canonical": "ear_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 240,
+        "end": 247,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1272,
+        "end": 1279,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 215,
+        "end": 220,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1258,
+        "end": 1263,
+        "text": "fever",
+        "canonical": "fever",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 249,
+        "end": 257,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1281,
+        "end": 1289,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 279,
+        "end": 292,
+        "text": "loss of taste",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1335,
+        "end": 1348,
+        "text": "loss of taste",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 279,
+        "end": 302,
+        "text": "loss of taste and smell",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1335,
+        "end": 1358,
+        "text": "loss of taste and smell",
+        "canonical": "loss_of_taste_smell",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 271,
+        "end": 277,
+        "text": "nausea",
+        "canonical": "nausea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 330,
+        "end": 337,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1533,
+        "end": 1540,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 318,
+        "end": 337,
+        "text": "feelings of sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1521,
+        "end": 1540,
+        "text": "feelings of sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 136,
+        "end": 145,
+        "text": "pneumonia",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Pneumonia",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [
+      {
+        "start": 2012,
+        "end": 2019,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 0.5
+      },
+      {
+        "start": 926,
+        "end": 934,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 0.5
+      }
+    ],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 30,
+        "gender": "Male"
+      },
+      "visit_motivation": "Pneumonia",
+      "symptoms": [
+        "fever",
+        "cough",
+        "fatigue",
+        "headache",
+        "chest_pain",
+        "nausea",
+        "loss_of_taste_smell",
+        "ear_pain",
+        "sadness"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 107,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 80,
+            "unit": "mmHg"
+          }
+        },
+        "respiratory_rate": {
+          "value": 24,
+          "unit": "breaths/min"
+        },
+        "oxygen_saturation": {
+          "value": 92.8,
+          "unit": "%"
+        },
+        "cholesterol_level": {
+          "value": 128.0,
+          "unit": "mg/dL"
+        },
+        "glucose_level": {
+          "value": 103.2,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 18,
+    "note_snippet": "Clinical Note:\n\nPatient: 36-year-old male\nChief Complaint: Concerns about possible Tuberculosis (TB)\n\nHistory of Present Illness:\nThe patient presents with concerns about possible tuberculosis. He reports a persistent cough, which has been present for several weeks. Associated symptoms include fatigue, night sweats, and unintentional weight loss. The patient also complains of abdominal pain, joint",
+    "candidate_spans": [
+      {
+        "start": 25,
+        "end": 36,
+        "text": "36-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 37,
+        "end": 41,
+        "text": "male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 926,
+        "end": 936,
+        "text": "93/75 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 985,
+        "end": 989,
+        "text": "36.7",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1006,
+        "end": 1008,
+        "text": "74",
+        "label": "VITAL_SIGN",
+        "subtype": "heart_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1033,
+        "end": 1035,
+        "text": "19",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1069,
+        "end": 1073,
+        "text": "99.2",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 379,
+        "end": 393,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 218,
+        "end": 223,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 556,
+        "end": 561,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2414,
+        "end": 2419,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 411,
+        "end": 435,
+        "text": "difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 782,
+        "end": 806,
+        "text": "Difficulty concentrating",
+        "canonical": "difficulty_concentrating",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 500,
+        "end": 508,
+        "text": "dry skin",
+        "canonical": "dry_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 757,
+        "end": 765,
+        "text": "Dry skin",
+        "canonical": "dry_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1369,
+        "end": 1377,
+        "text": "Dry skin",
+        "canonical": "dry_skin",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 295,
+        "end": 302,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 395,
+        "end": 405,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 693,
+        "end": 703,
+        "text": "Joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1771,
+        "end": 1781,
+        "text": "Joint Pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2424,
+        "end": 2434,
+        "text": "joint pain",
+        "canonical": "joint_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 304,
+        "end": 316,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 477,
+        "end": 494,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 721,
+        "end": 738,
+        "text": "Painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1659,
+        "end": 1676,
+        "text": "Painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 2192,
+        "end": 2209,
+        "text": "painful urination",
+        "canonical": "painful_urination",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 465,
+        "end": 475,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 814,
+        "end": 824,
+        "text": "Runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1151,
+        "end": 1166,
+        "text": "Nasal discharge",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 336,
+        "end": 347,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 322,
+        "end": 347,
+        "text": "unintentional weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 83,
+        "end": 95,
+        "text": "Tuberculosis",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Tuberculosis (TB)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [
+      {
+        "start": 659,
+        "end": 673,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 604,
+        "end": 611,
+        "text": "Fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 613,
+        "end": 625,
+        "text": "night sweats",
+        "canonical": "night_sweats",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      },
+      {
+        "start": 627,
+        "end": 638,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "NEGATED",
+        "trigger": "no"
+      }
+    ],
+    "ambiguous_mentions": [],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 36,
+        "gender": "Male"
+      },
+      "visit_motivation": "Tuberculosis (TB)",
+      "symptoms": [
+        "cough",
+        "fatigue",
+        "abdominal_pain",
+        "runny_nose",
+        "joint_pain",
+        "night_sweats",
+        "weight_loss",
+        "painful_urination",
+        "dry_skin",
+        "difficulty_concentrating"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 93,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 75,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.7,
+          "unit": "\u00b0C"
+        },
+        "heart_rate": {
+          "value": 74,
+          "unit": "bpm"
+        },
+        "respiratory_rate": {
+          "value": 19,
+          "unit": "breaths/min"
+        },
+        "oxygen_saturation": {
+          "value": 99.2,
+          "unit": "%"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 19,
+    "note_snippet": "**CLINICAL NOTES**\n\n**Patient Information:**\nAge: 28\nGender: Male\n\n**Chief Complaint:**\nThe patient presents with a history of allergies, which prompted this visit. He reports a constellation of symptoms that have been ongoing for an unspecified duration.\n\n**History of Present Illness:**\nThe patient reports experiencing a cough, fatigue, difficulty breathing, diarrhea, abdominal pain, runny nose, ",
+    "candidate_spans": [
+      {
+        "start": 45,
+        "end": 52,
+        "text": "Age: 28",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 53,
+        "end": 65,
+        "text": "Gender: Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 61,
+        "end": 65,
+        "text": "Male",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1032,
+        "end": 1043,
+        "text": "104/60 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 1065,
+        "end": 1069,
+        "text": "36.7",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1115,
+        "end": 1117,
+        "text": "18",
+        "label": "VITAL_SIGN",
+        "subtype": "respiratory_rate",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 1174,
+        "end": 1179,
+        "text": "127.9",
+        "label": "VITAL_SIGN",
+        "subtype": "cholesterol_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 372,
+        "end": 386,
+        "text": "abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 324,
+        "end": 329,
+        "text": "cough",
+        "canonical": "cough",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 362,
+        "end": 370,
+        "text": "diarrhea",
+        "canonical": "diarrhea",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 340,
+        "end": 360,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 445,
+        "end": 456,
+        "text": "facial pain",
+        "canonical": "facial_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 331,
+        "end": 338,
+        "text": "fatigue",
+        "canonical": "fatigue",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 416,
+        "end": 426,
+        "text": "itchy eyes",
+        "canonical": "itchy_eyes",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 400,
+        "end": 404,
+        "text": "rash",
+        "canonical": "rash",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1504,
+        "end": 1508,
+        "text": "rash",
+        "canonical": "rash",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 388,
+        "end": 398,
+        "text": "runny nose",
+        "canonical": "runny_nose",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 406,
+        "end": 414,
+        "text": "sneezing",
+        "canonical": "sneezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 428,
+        "end": 439,
+        "text": "weight loss",
+        "canonical": "weight_loss",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 127,
+        "end": 136,
+        "text": "allergies",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Allergies",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [
+      {
+        "start": 1368,
+        "end": 1376,
+        "text": "wheezing",
+        "canonical": "wheezing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 0.5
+      }
+    ],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 28,
+        "gender": "Male"
+      },
+      "visit_motivation": "Allergies",
+      "symptoms": [
+        "cough",
+        "fatigue",
+        "difficulty_breathing",
+        "diarrhea",
+        "abdominal_pain",
+        "runny_nose",
+        "rash",
+        "sneezing",
+        "itchy_eyes",
+        "weight_loss",
+        "facial_pain"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 104,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 60,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 36.7,
+          "unit": "\u00b0C"
+        },
+        "respiratory_rate": {
+          "value": 18,
+          "unit": "breaths/min"
+        },
+        "cholesterol_level": {
+          "value": 127.9,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  },
+  {
+    "id": 20,
+    "note_snippet": "**Clinical Notes**\n\n**Patient Information:**\n- Age: 66\n- Gender: Female\n\n**Visit Motivation:**\n- Patient presents for evaluation of hypertension (high blood pressure).\n\n**Chief Complaints:**\n- Headache\n- Sore throat\n- Difficulty breathing\n- Chest pain\n- Abdominal pain\n- Sadness\n\n**Vital Signs:**\n- Blood Pressure: 173/116 mmHg (Hypertensive crisis)\n- Temperature: 37.0 \u00b0C (Normal)\n- Oxygen Saturatio",
+    "candidate_spans": [
+      {
+        "start": 489,
+        "end": 500,
+        "text": "66-year-old",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 47,
+        "end": 54,
+        "text": "Age: 66",
+        "label": "PATIENT_INFO",
+        "subtype": "age",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 57,
+        "end": 71,
+        "text": "Gender: Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 65,
+        "end": 71,
+        "text": "Female",
+        "label": "PATIENT_INFO",
+        "subtype": "gender",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 315,
+        "end": 327,
+        "text": "173/116 mmHg",
+        "label": "VITAL_SIGN",
+        "subtype": "blood_pressure",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      },
+      {
+        "start": 365,
+        "end": 367,
+        "text": "37",
+        "label": "VITAL_SIGN",
+        "subtype": "temperature",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 403,
+        "end": 407,
+        "text": "96.6",
+        "label": "VITAL_SIGN",
+        "subtype": "oxygen_saturation",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 435,
+        "end": 437,
+        "text": "98",
+        "label": "VITAL_SIGN",
+        "subtype": "glucose_level",
+        "assertion": "AFFIRMED",
+        "confidence": 0.95
+      },
+      {
+        "start": 254,
+        "end": 268,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 986,
+        "end": 1000,
+        "text": "Abdominal pain",
+        "canonical": "abdominal_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 241,
+        "end": 251,
+        "text": "Chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 879,
+        "end": 889,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1222,
+        "end": 1232,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1771,
+        "end": 1781,
+        "text": "chest pain",
+        "canonical": "chest_pain",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 218,
+        "end": 238,
+        "text": "Difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 761,
+        "end": 781,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1792,
+        "end": 1812,
+        "text": "difficulty breathing",
+        "canonical": "difficulty_breathing",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 193,
+        "end": 201,
+        "text": "Headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 734,
+        "end": 742,
+        "text": "headache",
+        "canonical": "headache",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 271,
+        "end": 278,
+        "text": "Sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1017,
+        "end": 1024,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1467,
+        "end": 1474,
+        "text": "sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 1005,
+        "end": 1024,
+        "text": "feelings of sadness",
+        "canonical": "sadness",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 204,
+        "end": 215,
+        "text": "Sore throat",
+        "canonical": "sore_throat",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 744,
+        "end": 755,
+        "text": "sore throat",
+        "canonical": "sore_throat",
+        "label": "SYMPTOM",
+        "assertion": "AFFIRMED",
+        "trigger": "none",
+        "confidence": 1.0
+      },
+      {
+        "start": 132,
+        "end": 144,
+        "text": "hypertension",
+        "label": "VISIT_MOTIVATION",
+        "subtype": "Hypertension (High Blood Pressure)",
+        "assertion": "AFFIRMED",
+        "confidence": 1.0
+      }
+    ],
+    "negated_mentions": [],
+    "ambiguous_mentions": [
+      {
+        "start": 1098,
+        "end": 1105,
+        "text": "anxiety",
+        "canonical": "anxiety",
+        "label": "SYMPTOM",
+        "assertion": "UNCERTAIN",
+        "trigger": "may indicate",
+        "confidence": 0.5
+      }
+    ],
+    "ground_truth_json": {
+      "patient_info": {
+        "age": 66,
+        "gender": "Female"
+      },
+      "visit_motivation": "Hypertension (High Blood Pressure)",
+      "symptoms": [
+        "headache",
+        "sore_throat",
+        "difficulty_breathing",
+        "chest_pain",
+        "abdominal_pain",
+        "sadness"
+      ],
+      "vital_signs": {
+        "blood_pressure": {
+          "systolic": {
+            "value": 173,
+            "unit": "mmHg"
+          },
+          "diastolic": {
+            "value": 116,
+            "unit": "mmHg"
+          }
+        },
+        "temperature": {
+          "value": 37.0,
+          "unit": "\u00b0C"
+        },
+        "oxygen_saturation": {
+          "value": 96.6,
+          "unit": "%"
+        },
+        "glucose_level": {
+          "value": 98.0,
+          "unit": "mg/dL"
+        }
+      }
+    },
+    "human_annotator_verification": {
+      "verified_by": "UNVERIFIED_WEAK_LABEL",
+      "notes_clean": true,
+      "approved_for_gold_benchmark": false
+    }
+  }
+]
