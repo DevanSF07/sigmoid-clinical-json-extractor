@@ -1,0 +1,13 @@
+-r requirements.txt
+# Reference API set; install in a fresh Python 3.11 environment.
+torch==2.6.0
+transformers==4.51.3
+tokenizers>=0.21,<0.22
+accelerate==1.6.0
+peft==0.15.2
+datasets==3.5.0
+sentence-transformers==4.1.0
+faiss-cpu==1.10.0
+outlines==1.0.3
+sentencepiece==0.2.0
+protobuf>=4.25,<6

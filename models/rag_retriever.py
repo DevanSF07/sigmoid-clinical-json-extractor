@@ -1,169 +1,56 @@
-"""
-RAG Retriever Module: BGE-Large + FAISS
-Retrieves semantically similar clinical cases from historical notes
-to provide dynamic few-shot context for structured JSON generation.
-
-CV Metric Targets:
-- 0.89 MRR (Mean Reciprocal Rank)
-- 93.1% Hit@3
-"""
-
-import os
+"""Explicit embedding model + FAISS cosine retrieval with training provenance."""
+import argparse
 import json
-import numpy as np
-import pandas as pd
-from typing import List, Dict, Any, Tuple
-import faiss
-from sentence_transformers import SentenceTransformer
-
+from pathlib import Path
+from clinical.io import read_records,write_json, fingerprint
 
 class ClinicalRAGRetriever:
-    def __init__(
-        self,
-        model_name: str = "BAAI/bge-large-en-v1.5",
-        device: str = "cpu"
-    ):
-        """
-        Initialize the BGE-Large dense retriever with FAISS index.
-        Falls back to lightweight/available transformer if running locally.
-        """
-        self.model_name = model_name
-        self.device = device
-        print(f"[RAG] Loading sentence embedder: {model_name} on {device}...")
-        try:
-            self.model = SentenceTransformer(model_name, device=device)
-        except Exception as e:
-            print(f"[RAG] Fallback to 'all-MiniLM-L6-v2' due to download/memory limit: {e}")
-            self.model = SentenceTransformer("all-MiniLM-L6-v2", device=device)
-            
-        self.dimension = self.model.get_sentence_embedding_dimension()
-        # FAISS inner product index for normalized vectors (cosine similarity)
-        self.index = faiss.IndexFlatIP(self.dimension)
-        self.corpus_ids: List[int] = []
-        self.corpus_notes: List[str] = []
-        self.corpus_jsons: List[Dict[str, Any]] = []
-
-    def build_index(self, train_df: pd.DataFrame, batch_size: int = 64):
-        """
-        Index train clinical notes into FAISS vector store.
-        """
-        print(f"[RAG] Encoding {len(train_df)} corpus clinical notes...")
-        self.corpus_ids = train_df["ID"].tolist()
-        self.corpus_notes = train_df["Note"].tolist()
-        self.corpus_jsons = [
-            json.loads(j) if isinstance(j, str) else j
-            for j in train_df["json"].tolist()
-        ]
-
-        # Generate embeddings
-        embeddings = self.model.encode(
-            self.corpus_notes,
-            batch_size=batch_size,
-            show_progress_bar=True,
-            normalize_embeddings=True
-        )
-        embeddings = np.array(embeddings, dtype=np.float32)
-
-        # Build FAISS index
-        self.index.reset()
-        self.index.add(embeddings)
-        print(f"[RAG] Successfully indexed {self.index.ntotal} records into FAISS.")
-
-    def retrieve(self, query_note: str, top_k: int = 3) -> List[Dict[str, Any]]:
-        """
-        Retrieve top-k most similar clinical cases for dynamic few-shot prompting.
-        """
-        query_embedding = self.model.encode(
-            [query_note],
-            normalize_embeddings=True
-        )
-        query_embedding = np.array(query_embedding, dtype=np.float32)
-
-        scores, indices = self.index.search(query_embedding, top_k)
-        results = []
-        for rank, (idx, score) in enumerate(zip(indices[0], scores[0])):
-            if idx < 0 or idx >= len(self.corpus_notes):
-                continue
-            results.append({
-                "rank": rank + 1,
-                "score": float(score),
-                "id": self.corpus_ids[idx],
-                "note": self.corpus_notes[idx],
-                "json": self.corpus_jsons[idx]
-            })
+    def __init__(self,model_name='BAAI/bge-large-en-v1.5',device='cpu'):
+        import faiss
+        import numpy as np
+        from sentence_transformers import SentenceTransformer
+        self.faiss,self.np=faiss,np
+        self.model_name=model_name
+        self.model=SentenceTransformer(model_name,device=device)
+        self.index=faiss.IndexFlatIP(self.model.get_sentence_embedding_dimension())
+        self.rows=[]
+    def _embed(self,texts,query=False):
+        # BGE retrieval instruction applies only to queries, never corpus notes.
+        if query and self.model_name.startswith('BAAI/bge-'):
+            texts=['Represent this sentence for searching relevant passages: '+s for s in texts]
+        return self.np.asarray(self.model.encode(texts,batch_size=32,normalize_embeddings=True,show_progress_bar=False),dtype='float32')
+    def build_index(self,records):
+        if not records:raise ValueError('Empty retrieval corpus')
+        if any('target' not in r for r in records):raise ValueError('Retrieval examples need labels')
+        self.rows=records;self.index.reset();self.index.add(self._embed([r['note'] for r in records]))
+    def save(self,path):
+        path=Path(path);path.mkdir(parents=True,exist_ok=True)
+        self.faiss.write_index(self.index,str(path/'index.faiss'))
+        write_json(path/'metadata.json',{'model_name':self.model_name,'rows':self.rows,
+            'long_notes':'Embedding encoder truncates at its max_seq_length; generation still receives the full query note.',
+            'embedding_max_tokens':self.model.max_seq_length})
+    @classmethod
+    def load(cls,path,device='cpu'):
+        path=Path(path);meta=json.loads((path/'metadata.json').read_text())
+        obj=cls(meta['model_name'],device);obj.rows=meta['rows'];obj.index=obj.faiss.read_index(str(path/'index.faiss'))
+        if obj.index.d!=obj.model.get_sentence_embedding_dimension() or obj.index.ntotal!=len(obj.rows):
+            raise ValueError('Corrupt/incompatible FAISS metadata')
+        return obj
+    def retrieve(self,note,top_k=3,exclude_id=None):
+        if not self.rows:return []
+        if top_k<1:raise ValueError('top_k must be positive')
+        # Overfetch all so duplicate exclusion cannot silently reduce k.
+        scores,indices=self.index.search(self._embed([note],query=True),len(self.rows))
+        from clinical.data import near_signature
+        query_sig=near_signature(note);seen={fingerprint(note)};results=[]
+        for score,idx in zip(scores[0],indices[0]):
+            if idx<0:continue
+            row=self.rows[int(idx)];fp=fingerprint(row['note'])
+            if (exclude_id is not None and str(row['id'])==str(exclude_id)) or fp in seen or near_signature(row['note'])==query_sig:continue
+            seen.add(fp);results.append({**row,'score':float(score)})
+            if len(results)==top_k:break
         return results
 
-    def format_few_shot_prompt(self, retrieved_cases: List[Dict[str, Any]], query_note: str) -> str:
-        """
-        Construct dynamic few-shot prompt for Llama-3-8B JSON generation.
-        """
-        prompt = (
-            "You are an expert clinical informatics model. Your task is to extract "
-            "structured clinical records from unstructured medical notes into valid JSON.\n\n"
-        )
-        for i, case in enumerate(retrieved_cases, 1):
-            prompt += f"### Example Case {i}:\n"
-            prompt += f"**Clinical Note:**\n{case['note'].strip()}\n\n"
-            prompt += f"**Target Structured JSON:**\n{json.dumps(case['json'])}\n\n"
-
-        prompt += "### Target Note To Process:\n"
-        prompt += f"**Clinical Note:**\n{query_note.strip()}\n\n"
-        prompt += "**Target Structured JSON:**\n"
-        return prompt
-
-    def evaluate_retrieval(
-        self,
-        eval_df: pd.DataFrame,
-        top_k: int = 3,
-        sample_size: int = 500
-    ) -> Dict[str, float]:
-        """
-        Evaluate Hit@K and MRR based on visit motivation match.
-        """
-        eval_samples = eval_df.sample(min(sample_size, len(eval_df)), random_state=42)
-        hits_at_k = 0
-        reciprocal_ranks = []
-
-        query_embeddings = self.model.encode(
-            eval_samples["Note"].tolist(),
-            batch_size=64,
-            normalize_embeddings=True
-        )
-        query_embeddings = np.array(query_embeddings, dtype=np.float32)
-
-        scores, indices = self.index.search(query_embeddings, top_k + 1)
-
-        for i, (_, row) in enumerate(eval_samples.iterrows()):
-            true_json = json.loads(row["json"]) if isinstance(row["json"], str) else row["json"]
-            true_mot = true_json.get("visit_motivation", "")
-
-            # Exclude self-match (index corresponding to exact same ID)
-            retrieved_matches = []
-            for rank_idx in indices[i]:
-                if self.corpus_ids[rank_idx] != row["ID"]:
-                    retrieved_matches.append(rank_idx)
-                if len(retrieved_matches) == top_k:
-                    break
-
-            # Check if any retrieved sample has the same visit motivation
-            found_rank = None
-            for r, match_idx in enumerate(retrieved_matches, 1):
-                cand_mot = self.corpus_jsons[match_idx].get("visit_motivation", "")
-                if cand_mot == true_mot:
-                    found_rank = r
-                    break
-
-            if found_rank is not None:
-                hits_at_k += 1
-                reciprocal_ranks.append(1.0 / found_rank)
-            else:
-                reciprocal_ranks.append(0.0)
-
-        hit_rate = hits_at_k / len(eval_samples)
-        mrr = float(np.mean(reciprocal_ranks))
-
-        print(f"[RAG Eval] Hit@{top_k}: {hit_rate * 100:.2f}% | MRR: {mrr:.4f}")
-        return {
-            f"Hit@{top_k}": hit_rate,
-            "MRR": mrr
-        }
+if __name__=='__main__':
+    p=argparse.ArgumentParser();p.add_argument('--train',required=True);p.add_argument('--output',default='artifacts/retriever');p.add_argument('--model',default='BAAI/bge-large-en-v1.5')
+    a=p.parse_args();r=ClinicalRAGRetriever(a.model);r.build_index(read_records(a.train));r.save(a.output)

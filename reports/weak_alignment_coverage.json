@@ -1,0 +1,8 @@
+{
+  "records": 8632,
+  "expected_fields": 128554,
+  "matched_fields": 122842,
+  "coverage": 0.9555673102353874,
+  "source": "weak_json_alignment",
+  "gold_spans": false
+}

@@ -44,3 +44,7 @@ checkpoints/
 
 # Logs
 *.log
+
+artifacts/
+.pytest_cache/
+.coverage

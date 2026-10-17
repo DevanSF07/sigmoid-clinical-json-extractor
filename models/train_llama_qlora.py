@@ -1,191 +1,76 @@
-"""
-Fine-Tuning Llama-3-8B with NF4 4-Bit QLoRA (r=32)
-Transforms unstructured clinical notes + BioClinicalBERT NER entities into valid JSON.
-Optimized for single-GPU training and inference (3.4x speedup).
+"""Completion-only NF4 QLoRA training with actual cached NER and retrieved cases."""
+import argparse
+from pathlib import Path
+from clinical.io import read_records,write_json,fingerprint
+from clinical.prompts import completion_example,CompletionCollator
 
-CV Specifications:
-- Base Model: meta-llama/Meta-Llama-3-8B-Instruct
-- Quantization: NF4 4-bit QLoRA (BitsAndBytesConfig)
-- LoRA Rank: r=32, lora_alpha=64, lora_dropout=0.05
-- Target Modules: q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj
-"""
+BASE_MODEL='meta-llama/Meta-Llama-3-8B-Instruct'
 
-import os
-import json
-import torch
-from dataclasses import dataclass, field
-from typing import Optional, Dict, Any, List
-import pandas as pd
-from datasets import Dataset
+def get_bnb_config():
+    import torch
+    from transformers import BitsAndBytesConfig
+    if not torch.cuda.is_available():raise RuntimeError('NF4 QLoRA requires a supported NVIDIA CUDA GPU; no silent CPU fallback')
+    return BitsAndBytesConfig(load_in_4bit=True,bnb_4bit_quant_type='nf4',bnb_4bit_use_double_quant=True,
+        bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16)
 
-from transformers import (
-    AutoModelForCausalLM,
-    AutoTokenizer,
-    BitsAndBytesConfig,
-    TrainingArguments,
-    Trainer
-)
-from peft import (
-    LoraConfig,
-    get_peft_model,
-    prepare_model_for_kbit_training,
-    TaskType
-)
+def get_qlora_config():
+    from peft import LoraConfig,TaskType
+    return LoraConfig(r=32,lora_alpha=64,lora_dropout=.05,bias='none',task_type=TaskType.CAUSAL_LM,
+        target_modules=['q_proj','k_proj','v_proj','o_proj','gate_proj','up_proj','down_proj'])
 
+def main():
+    p=argparse.ArgumentParser()
+    for name in ('train','validation','index'):p.add_argument('--'+name,required=True)
+    p.add_argument('--output',default='checkpoints/llama-qlora');p.add_argument('--base',default=BASE_MODEL)
+    p.add_argument('--epochs',type=int,default=3);p.add_argument('--batch-size',type=int,default=1)
+    p.add_argument('--gradient-accumulation',type=int,default=16);p.add_argument('--max-length',type=int,default=8192)
+    p.add_argument('--seed',type=int,default=42);p.add_argument('--allow-in-sample-entities',action='store_true')
+    a=p.parse_args()
+    import torch
+    from datasets import Dataset
+    from transformers import AutoModelForCausalLM,AutoTokenizer,Trainer,TrainingArguments,set_seed
+    from peft import get_peft_model,prepare_model_for_kbit_training
+    from models.rag_retriever import ClinicalRAGRetriever
+    set_seed(a.seed)
+    train,val=read_records(a.train),read_records(a.validation)
+    for row in train+val:
+        if 'entities' not in row or not row.get('entity_source'):
+            raise ValueError('Actual NER prediction cache required; run scripts.predict_entities or scripts.oof_entities')
+    if not a.allow_in_sample_entities and any(not r.get('out_of_fold') for r in train):
+        raise ValueError('Training needs out-of-fold NER predictions. For an explicitly documented approximation pass --allow-in-sample-entities.')
+    if {fingerprint(r['note']) for r in train}&{fingerprint(r['note']) for r in val}:
+        raise ValueError('Training/validation note leakage')
+    retriever=ClinicalRAGRetriever.load(a.index)
+    if not {str(r['id']) for r in retriever.rows}<={str(r['id']) for r in train}:
+        raise ValueError('Retrieval index must contain training examples only')
+    tokenizer=AutoTokenizer.from_pretrained(a.base,use_fast=True)
+    tokenizer.pad_token=tokenizer.eos_token;tokenizer.padding_side='right'
+    def build(rows):
+        items=[];used=[]
+        for row in rows:
+            cases=retriever.retrieve(row['note'],top_k=3,exclude_id=row['id'])
+            item,k=completion_example(tokenizer,row['note'],row['entities'],cases,row['target'],a.max_length)
+            items.append(item);used.append(k)
+        return Dataset.from_list(items),used
+    train_ds,train_k=build(train);val_ds,val_k=build(val)
+    model=AutoModelForCausalLM.from_pretrained(a.base,quantization_config=get_bnb_config(),device_map='auto',
+        torch_dtype=torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16,attn_implementation='sdpa')
+    model=prepare_model_for_kbit_training(model);model=get_peft_model(model,get_qlora_config())
+    model.config.use_cache=False;model.print_trainable_parameters()
+    args=TrainingArguments(output_dir=a.output,num_train_epochs=a.epochs,learning_rate=2e-4,
+        per_device_train_batch_size=a.batch_size,per_device_eval_batch_size=1,
+        gradient_accumulation_steps=a.gradient_accumulation,gradient_checkpointing=True,
+        gradient_checkpointing_kwargs={'use_reentrant':False},optim='paged_adamw_8bit',
+        bf16=torch.cuda.is_bf16_supported(),fp16=not torch.cuda.is_bf16_supported(),
+        eval_strategy='epoch',save_strategy='epoch',load_best_model_at_end=True,
+        metric_for_best_model='eval_loss',greater_is_better=False,save_total_limit=2,
+        warmup_ratio=.03,lr_scheduler_type='cosine',report_to='none',seed=a.seed)
+    trainer=Trainer(model=model,args=args,train_dataset=train_ds,eval_dataset=val_ds,
+        data_collator=CompletionCollator(tokenizer.pad_token_id),processing_class=tokenizer)
+    trainer.train();trainer.save_model(a.output);tokenizer.save_pretrained(a.output)
+    write_json(Path(a.output)/'training_provenance.json',{'base':a.base,'seed':a.seed,
+        'in_sample_ner_approximation':a.allow_in_sample_entities,'train':a.train,'validation':a.validation,
+        'index':a.index,'max_length':a.max_length,'examples_kept_train':train_k,'examples_kept_validation':val_k,
+        'validation_metrics':trainer.evaluate()})
 
-SYSTEM_PROMPT = """You are an expert clinical informatics system.
-Your job is to parse the unstructured clinical note and extracted clinical entities
-into a strictly valid JSON document adhering to the PatientRecord schema.
-Output ONLY the raw JSON object with no explanations or markdown backticks."""
-
-
-def build_llama_prompt(note: str, entities: Dict[str, Any], target_json: Optional[str] = None) -> str:
-    """Format input prompt using Llama-3 chat template structure."""
-    user_content = (
-        f"**Clinical Note:**\n{note.strip()}\n\n"
-        f"**Extracted NER Entities:**\n{json.dumps(entities, indent=2)}\n\n"
-        f"Extract and return the finalized PatientRecord JSON:"
-    )
-
-    prompt = (
-        f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
-        f"{SYSTEM_PROMPT}<|eot_id|>"
-        f"<|start_header_id|>user<|end_header_id|>\n\n"
-        f"{user_content}<|eot_id|>"
-        f"<|start_header_id|>assistant<|end_header_id|>\n\n"
-    )
-    if target_json:
-        prompt += f"{target_json}<|eot_id|>"
-    return prompt
-
-
-def get_qlora_config() -> LoraConfig:
-    """Configure LoRA adapter with rank r=32 and alpha=64 across all linear projections."""
-    return LoraConfig(
-        r=32,
-        lora_alpha=64,
-        target_modules=[
-            "q_proj",
-            "k_proj",
-            "v_proj",
-            "o_proj",
-            "gate_proj",
-            "up_proj",
-            "down_proj"
-        ],
-        lora_dropout=0.05,
-        bias="none",
-        task_type=TaskType.CAUSAL_LM
-    )
-
-
-def get_bnb_config() -> BitsAndBytesConfig:
-    """NF4 4-bit Quantization configuration for single-GPU VRAM efficiency."""
-    return BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_compute_dtype=torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float16
-    )
-
-
-def train(
-    train_csv_path: str = "train (1).csv",
-    output_dir: str = "./checkpoints/llama3_qlora_patient_json",
-    model_id: str = "meta-llama/Meta-Llama-3-8B-Instruct",
-    num_epochs: int = 3,
-    batch_size: int = 4,
-    gradient_accumulation_steps: int = 4,
-    learning_rate: float = 2e-4
-):
-    """
-    Main training function for Llama-3-8B NF4 QLoRA on single GPU.
-    """
-    print(f"[QLoRA] Loading dataset from {train_csv_path}...")
-    df = pd.read_csv(train_csv_path)
-
-    # Format training examples
-    prompts = []
-    for _, row in df.iterrows():
-        note = row["Note"]
-        target = row["json"]
-        # Basic entity mock or NER integration
-        entities = {"raw_note_snippet": note[:200]}
-        prompt_text = build_llama_prompt(note, entities, target)
-        prompts.append(prompt_text)
-
-    dataset = Dataset.from_dict({"text": prompts})
-
-    # Tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_id)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
-    tokenizer.padding_side = "right"
-
-    # Model loading with NF4 Quantization
-    print(f"[QLoRA] Loading 4-bit quantized base model {model_id}...")
-    bnb_config = get_bnb_config()
-
-    try:
-        model = AutoModelForCausalLM.from_pretrained(
-            model_id,
-            quantization_config=bnb_config,
-            device_map="auto",
-            torch_dtype=torch.bfloat16 if torch.cuda.is_available() and torch.cuda.is_bf16_supported() else torch.float16,
-            attn_implementation="sdpa"
-        )
-    except Exception as e:
-        print(f"[QLoRA Note] GPU / BitsAndBytes not available on local CPU/MPS environment: {e}")
-        print("[QLoRA Note] This script is production-ready for deployment on an NVIDIA GPU (A10G/A100/T4).")
-        return
-
-    model = prepare_model_for_kbit_training(model)
-    lora_config = get_qlora_config()
-    model = get_peft_model(model, lora_config)
-    model.print_trainable_parameters()
-
-    def tokenize_func(batch):
-        return tokenizer(
-            batch["text"],
-            truncation=True,
-            max_length=2048,
-            padding="max_length"
-        )
-
-    tokenized_dataset = dataset.map(tokenize_func, batched=True, remove_columns=["text"])
-
-    training_args = TrainingArguments(
-        output_dir=output_dir,
-        per_device_train_batch_size=batch_size,
-        gradient_accumulation_steps=gradient_accumulation_steps,
-        learning_rate=learning_rate,
-        lr_scheduler_type="cosine",
-        warmup_ratio=0.03,
-        num_train_epochs=num_epochs,
-        logging_steps=25,
-        save_strategy="epoch",
-        fp16=not torch.cuda.is_bf16_supported(),
-        bf16=torch.cuda.is_bf16_supported(),
-        optim="paged_adamw_8bit",
-        gradient_checkpointing=True,
-        report_to="none"
-    )
-
-    trainer = Trainer(
-        model=model,
-        args=training_args,
-        train_dataset=tokenized_dataset,
-        tokenizer=tokenizer
-    )
-
-    print("[QLoRA] Starting fine-tuning...")
-    trainer.train()
-
-    print(f"[QLoRA] Saving fine-tuned LoRA adapters to {output_dir}...")
-    model.save_pretrained(output_dir)
-    tokenizer.save_pretrained(output_dir)
-    print("[QLoRA] Fine-tuning completed successfully!")
-
-
-if __name__ == "__main__":
-    train()
+if __name__=='__main__':main()

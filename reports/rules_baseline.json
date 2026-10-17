@@ -1,0 +1,24 @@
+{
+  "records": 1088,
+  "failed_records": 0,
+  "json_validity": 1.0,
+  "schema_validity": 1.0,
+  "age_accuracy": 0.9908088235294118,
+  "gender_accuracy": 0.9972426470588235,
+  "visit_motivation_accuracy": 0.7794117647058824,
+  "symptom_set": {
+    "precision": 0.96952288218111,
+    "recall": 0.9703732579670598,
+    "f1": 0.9699478836880815,
+    "tp": 9957,
+    "fp": 313,
+    "fn": 304
+  },
+  "vital_leaf_accuracy": 0.9239831073571905,
+  "field_leaf_accuracy": 0.902247191011236,
+  "exact_record_match": 0.47518382352941174,
+  "missing_slot_rate": 0.05890804597701149,
+  "unsupported_slot_rate": 0.010023068968260282,
+  "numeric_absolute_tolerance": 0.01,
+  "definition": "Union of gold/predicted leaf slots, symptoms one sorted-set slot. Missing prediction counts as failure. Unsupported means absent from gold, not clinician-verified hallucination. Units compared exactly; no implicit conversions."
+}

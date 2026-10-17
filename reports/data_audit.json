@@ -1,0 +1,45 @@
+{
+  "source_sha256": "8c56cc9b9cdab8238fcf1e792e81c12b7ddbf7b2cfc4a0ec73f9632a11bf41ad",
+  "seed": 42,
+  "rows": 10822,
+  "invalid_targets": 0,
+  "exact_duplicate_rows": 0,
+  "template_groups": 10822,
+  "empty_notes": 0,
+  "categories": {
+    "Anemia": 525,
+    "Allergies": 584,
+    "Diabetes (Type 2)": 533,
+    "Tuberculosis (TB)": 535,
+    "Depression": 533,
+    "Asthma": 502,
+    "Hypertension (High Blood Pressure)": 593,
+    "Influenza (Flu)": 559,
+    "Anxiety Disorders": 571,
+    "Gastroesophageal Reflux Disease (GERD)": 582,
+    "Heart Disease (Coronary Artery Disease)": 512,
+    "Pneumonia": 511,
+    "Urinary Tract Infection (UTI)": 598,
+    "Common Cold": 498,
+    "Ear Infection (Otitis Media)": 533,
+    "Eczema (Atopic Dermatitis)": 578,
+    "COVID-19": 494,
+    "Strep Throat": 567,
+    "Sinusitis": 510,
+    "Chronic Obstructive Pulmonary Disease (COPD)": 504
+  },
+  "target_keys": {
+    "patient_info": 10822,
+    "visit_motivation": 10822,
+    "symptoms": 10822,
+    "vital_signs": 10822
+  },
+  "splits": {
+    "train": 8632,
+    "validation": 1102,
+    "evaluation": 1088
+  },
+  "supervision": "Document JSON only; no gold character spans or medication targets.",
+  "grouping": "Explicit patient_id if supplied; otherwise normalized template fingerprint. CSV ID is a record ID, not a patient ID.",
+  "limitation": "Template grouping catches numeric/punctuation variants, not all semantic near duplicates. No patient IDs in source CSV."
+}

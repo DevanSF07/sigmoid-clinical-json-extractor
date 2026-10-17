@@ -1,0 +1,27 @@
+{
+  "tests_passed": 39,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "test_runtime_seconds": 54.3,
+  "python": "3.12.14",
+  "device": "CPU",
+  "dependency_check": "No broken requirements found",
+  "actual_interface_checks": [
+    "Tiny BERT supervised training/save/reload and long-note overflow inference",
+    "Tiny Llama completion-only LoRA training/save/reload",
+    "Local SentenceTransformer encoding and FAISS index save/reload",
+    "Outlines v1 constrained JSON generation",
+    "PEFT adapter loading and complete PatientRecord grammar compilation"
+  ],
+  "mocked_checks": [
+    "End-to-end model-stage argument flow and failures",
+    "Character tokenizer prompt budget/loss masking"
+  ],
+  "not_executed": [
+    "Full BioClinicalBERT clinical training",
+    "BGE-Large downloaded-weight retrieval evaluation",
+    "Llama-3-8B NF4 CUDA training and inference",
+    "Clinical model held-out accuracy and GPU throughput comparison"
+  ],
+  "warning": "One expected PEFT warning in GPT2-only adapter fixture; not a Llama warning."
+}

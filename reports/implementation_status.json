@@ -1,0 +1,7 @@
+{
+  "implemented": ["typed nullable schema", "real sliding-window NER inference", "NER training", "weak span alignment", "training-only retrieval", "OOF NER caching", "completion-only QLoRA training", "adapter loading", "Outlines constrained generation", "explicit failure reporting", "held-out metrics", "benchmark CLI"],
+  "full_clinical_models_trained_here": false,
+  "cuda_available_here": false,
+  "historical_cv_metrics_reproduced": false,
+  "limitations": ["No gold entity spans or medication targets in source data", "Weak positive alignment requires manual review for reliable O supervision", "No task-trained model weights bundled", "Full model training, GPU memory and throughput benchmarks require external GPU and model access", "No independent clinical validation"]
+}
